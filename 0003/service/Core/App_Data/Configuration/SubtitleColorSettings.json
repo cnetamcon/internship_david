@@ -1,0 +1,36 @@
+﻿{
+  "pairs": [
+    {
+      "color_stl": "0x01",
+      "color_srt": "red"
+    },
+    {
+      "color_stl": "0x02",
+      "color_srt": "green"
+    },
+    {
+      "color_stl": "0x04",
+      "color_srt": "blue"
+    },
+    {
+      "color_stl": "0x07",
+      "color_srt": "white"
+    },
+    {
+      "color_stl": "0x00",
+      "color_srt": "black"
+    },
+    {
+      "color_stl": "0x03",
+      "color_srt": "yellow"
+    },
+    {
+      "color_stl": "0x05",
+      "color_srt": "magenta"
+    },
+    {
+      "color_stl": "0x06",
+      "color_srt": "cyan"
+    }
+  ]
+}

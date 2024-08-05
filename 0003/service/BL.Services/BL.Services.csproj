@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AM.Srt\AM.Srt.csproj" />
+    <ProjectReference Include="..\AM.Stl\AM.Stl.csproj" />
+    <ProjectReference Include="..\AM\AM.csproj" />
+    <ProjectReference Include="..\BL\BL.csproj" />
+    <ProjectReference Include="..\Core.Settings\Core.Settings.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" />
+    
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,4 @@
+- [x] [backlog_grooming_001](backlog_grooming_001.md)
+- [x] [backlog_grooming_002](backlog_grooming_002.md)
+- [ ] [backlog_grooming_007](backlog_grooming_007.md)
+- [ ] [backlog_grooming_008](backlog_grooming_008.md)

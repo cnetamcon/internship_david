@@ -1,0 +1,875 @@
+1
+00:00:19,000 --> 00:00:24,000
+<c.yellow>- K. B. : C'était la frappe</c>
+<c.yellow>d'Adrien Rabiot non cadrée.</c>
+
+2
+00:00:28,000 --> 00:00:30,000
+<c.yellow>- E. P. : Il avait la possibilité</c>
+<c.yellow>de fixer 1 contre 1.</c>
+
+3
+00:00:32,000 --> 00:00:34,000
+<c.yellow>- K. B. : Nous sommes entrés dans</c>
+<c.yellow>les 5 dernières minutes de cette</c>
+
+4
+00:00:35,000 --> 00:00:36,000
+<c.yellow>1re période.</c>
+
+5
+00:00:36,000 --> 00:00:37,000
+<c.yellow>Un but partout.</c>
+
+6
+00:00:40,000 --> 00:00:44,000
+<c.yellow>- E. P. : Tout le monde s'attendait</c>
+<c.yellow>à une ultra domination des</c>
+
+7
+00:00:44,000 --> 00:00:45,000
+<c.yellow>Parisiens.</c>
+
+8
+00:00:45,000 --> 00:00:48,000
+<c.yellow>Ca n'a pas lieu, pour l'instant.</c>
+
+9
+00:00:50,000 --> 00:01:00,000
+<c.yellow>Ca me rappelle la finale de l'année</c>
+<c.yellow>dernière, quand les Corses avaient</c>
+
+10
+00:01:00,000 --> 00:01:01,000
+<c.yellow>souffert.</c>
+
+11
+00:01:01,000 --> 00:01:03,000
+<c.yellow>Ils étaient à 10.</c>
+
+12
+00:01:09,000 --> 00:01:13,000
+<c.yellow>- K. B. : Marseille est revenu</c>
+<c.yellow>assez rapidement après le but de</c>
+
+13
+00:01:14,000 --> 00:01:15,000
+<c.yellow>Blaise Matuidi.</c>
+
+14
+00:01:16,000 --> 00:01:21,000
+<c.yellow>Touche marseillaise réclamée par</c>
+<c.yellow>Angel Di Maria.</c>
+
+15
+00:01:31,000 --> 00:01:33,000
+<c.yellow>Le Belge a récupéré le ballon, il</c>
+<c.yellow>est passé et frappe.</c>
+
+16
+00:01:36,000 --> 00:01:39,000
+<c.yellow>Il a essayé d'éviter le retour de</c>
+<c.yellow>Thiago Silva.</c>
+
+17
+00:01:41,000 --> 00:01:45,000
+<c.yellow>- E. P. : Il a gagné son duel face</c>
+<c.yellow>à Marquinhos, ce qui est déjà un</c>
+
+18
+00:01:45,000 --> 00:01:47,000
+<c.yellow>exploit en soi, car il est très</c>
+<c.yellow>dur.</c>
+
+19
+00:01:48,000 --> 00:01:51,000
+<c.yellow>Il a fixé Thiago Silva avec sa</c>
+<c.yellow>puissance.</c>
+
+20
+00:01:51,000 --> 00:01:53,000
+<c.yellow>Mais il s'est précipité.</c>
+
+21
+00:01:56,000 --> 00:02:01,000
+<c.yellow>Il aurait dû continuer dans son</c>
+<c.yellow>appel, et peut-être jouer avec un</c>
+
+22
+00:02:01,000 --> 00:02:02,000
+<c.yellow>relais.</c>
+
+23
+00:02:03,000 --> 00:02:07,000
+<c.yellow>Mais il y a eu précipitation à la</c>
+<c.yellow>sortie du dribble.</c>
+
+24
+00:02:15,000 --> 00:02:20,000
+<c.yellow>- K. B. : Ballon pour les</c>
+<c.yellow>Marseillais pour les dernières</c>
+
+25
+00:02:20,000 --> 00:02:22,000
+<c.yellow>minutes avant de rejoindre les</c>
+<c.yellow>vestiaires.</c>
+
+26
+00:02:26,000 --> 00:02:28,000
+<c.magenta>Chants des supporters</c>
+
+27
+00:02:31,000 --> 00:02:32,000
+<c.red>Coup de sifflet</c>
+
+28
+00:02:34,000 --> 00:02:38,000
+<c.yellow>Faute de Serge Aurier.</c>
+
+29
+00:02:51,000 --> 00:02:56,000
+<c.yellow>Barrada est formé au PSG.</c>
+
+30
+00:03:19,000 --> 00:03:21,000
+<c.yellow>- E. P. : Attention au contre.</c>
+
+31
+00:03:23,000 --> 00:03:24,000
+<c.yellow>- K. B. : Il faut revenir.</c>
+
+32
+00:03:24,000 --> 00:03:25,000
+<c.yellow>Faute.</c>
+
+33
+00:03:28,000 --> 00:03:29,000
+<c.yellow>Faute parisienne.</c>
+
+34
+00:03:34,000 --> 00:03:39,000
+<c.yellow>- E. P. : Là où c'est intelligent,</c>
+<c.yellow>c'est que quand Adrien Rabiot part</c>
+
+35
+00:03:39,000 --> 00:03:45,000
+<c.yellow>avec Matuidi dans cette chevauchée,</c>
+<c.yellow>Lassana Diarra est loin.</c>
+
+36
+00:03:46,000 --> 00:03:51,000
+<c.yellow>Il anticipe la 2e touche de balle</c>
+<c.yellow>qui lui propulse le ballon, et il</c>
+
+37
+00:03:51,000 --> 00:03:54,000
+<c.yellow>accompagne la course et vient</c>
+<c.yellow>coller son corps pour empêcher</c>
+
+38
+00:03:54,000 --> 00:03:56,000
+<c.yellow>Adrien Rabiot de faire la</c>
+<c.yellow>différence.</c>
+
+39
+00:03:56,000 --> 00:04:04,000
+<c.yellow>- K. B. : Ca permet aux Marseillais</c>
+<c.yellow>de se relancer dans la dernière</c>
+
+40
+00:04:05,000 --> 00:04:07,000
+<c.yellow>minute du temps réglementaire de la</c>
+<c.yellow>1re période.</c>
+
+41
+00:04:12,000 --> 00:04:17,000
+<c.yellow>- R. G. : Il n'y aura pas de temps</c>
+<c.yellow>additionnel.</c>
+
+42
+00:04:28,000 --> 00:04:32,000
+<c.yellow>- K. B. : Mauricio Isla a demandé à</c>
+<c.yellow>Manquillo de reprendre son couloir.</c>
+
+43
+00:04:44,000 --> 00:04:45,000
+<c.yellow>Ballon récupéré par les Parisiens.</c>
+
+44
+00:04:48,000 --> 00:04:49,000
+<c.yellow>Double contact.</c>
+
+45
+00:04:49,000 --> 00:04:52,000
+<c.yellow>C'était super de la part de</c>
+<c.yellow>l'Uruguayen.</c>
+
+46
+00:04:56,000 --> 00:04:59,000
+<c.yellow>Dernière montée de ballon en faveur</c>
+<c.yellow>des Parisiens.</c>
+
+47
+00:05:00,000 --> 00:05:01,000
+<c.yellow>- E. P. : Mi-temps.</c>
+
+48
+00:05:02,000 --> 00:05:06,000
+<c.yellow>- K. B. : Clément Turpin a sifflé</c>
+<c.yellow>la fin de cette 1re mi-temps.</c>
+
+49
+00:05:07,000 --> 00:05:10,000
+<c.yellow>1 but partout entre Marseille et</c>
+<c.yellow>Paris.</c>
+
+50
+00:05:10,000 --> 00:05:15,000
+<c.yellow>Ouverture du score de Blaise</c>
+<c.yellow>Matuidi à la 2e minute et de</c>
+
+51
+00:05:15,000 --> 00:05:17,000
+<c.yellow>Florian Thauvin à la 12e minute.</c>
+
+52
+00:05:17,000 --> 00:05:21,000
+<c.yellow>Cela permet à Marseille de rester</c>
+<c.yellow>dans le coup.</c>
+
+53
+00:05:22,000 --> 00:05:24,000
+<c.yellow>- E. P. : On a un match équilibré.</c>
+
+54
+00:05:24,000 --> 00:05:26,000
+<c.yellow>C'était mal embarqué pour les</c>
+<c.yellow>Marseillais.</c>
+
+55
+00:05:27,000 --> 00:05:30,000
+<c.yellow>Ils sont très bien revenus pour ne</c>
+<c.yellow>pas laisser les Parisiens</c>
+
+56
+00:05:30,000 --> 00:05:31,000
+<c.yellow>s'installer dans cette 1re période.</c>
+
+57
+00:05:32,000 --> 00:05:36,000
+<c.yellow>Beaucoup de problèmes dans</c>
+<c.yellow>l'entre-jeu pour les Parisiens,</c>
+
+58
+00:05:36,000 --> 00:05:38,000
+<c.yellow>afin de pratiquer et dérouler leur</c>
+<c.yellow>jeu.</c>
+
+59
+00:05:39,000 --> 00:05:43,000
+<c.yellow>Ca les empêche d'avoir des</c>
+<c.yellow>transitions avec les attaquants.</c>
+
+60
+00:05:48,000 --> 00:05:53,000
+<c.yellow>- K. B. : On va retrouver Rodolphe</c>
+<c.yellow>Gaudin avec Florian Thauvin.</c>
+
+61
+00:05:53,000 --> 00:05:54,000
+- R. G. : Oui.
+
+62
+00:05:55,000 --> 00:05:57,000
+On a l'impression que vous avez
+trouvé
+
+63
+00:06:02,000 --> 00:06:04,000
+la solution pour gêner les
+
+64
+00:06:05,000 --> 00:06:09,000
+Parisiens par ce repli défensif,
+cette agressivité impressionnante.
+
+65
+00:06:11,000 --> 00:06:13,000
+- C'est vrai qu'il y a un bon état
+d'esprit d'équipe.
+
+66
+00:06:14,000 --> 00:06:18,000
+Je tiens à féliciter l'équipe pour
+cette 1re période.
+
+67
+00:06:18,000 --> 00:06:22,000
+Il faut continuer comme ça en 2e
+mi-temps et espérer arracher la
+
+68
+00:06:22,000 --> 00:06:23,000
+victoire.
+
+69
+00:06:24,000 --> 00:06:28,000
+- R. G. : Vous vous dites que c'est
+de plus en plus possible ?
+
+70
+00:06:28,000 --> 00:06:31,000
+Que le PSG n'est pas invincible ?
+
+71
+00:06:32,000 --> 00:06:34,000
+- Bien sûr.
+
+72
+00:06:34,000 --> 00:06:36,000
+On a fait une très bonne 1re
+mi-temps.
+
+73
+00:06:36,000 --> 00:06:38,000
+Ils ont créé des occasions et nous
+aussi.
+
+74
+00:06:39,000 --> 00:06:40,000
+J'ai confiance en mon équipe.
+
+75
+00:06:40,000 --> 00:06:43,000
+On fera le maximum pour arracher la
+victoire.
+
+76
+00:06:44,000 --> 00:06:46,000
+- K. B. : Il a raison d'y croire.
+
+77
+00:06:46,000 --> 00:06:49,000
+Marseille a proposé un visage
+séduisant.
+
+78
+00:06:49,000 --> 00:06:52,000
+Un visage d'équipe que l'on avait
+rarement vu.
+
+79
+00:06:54,000 --> 00:06:57,000
+On va faire un petit tour du côté
+de la régie.
+
+80
+00:06:57,000 --> 00:07:00,000
+Et on revient pour la 2e période.
+
+81
+00:07:04,000 --> 00:07:07,000
+-Benjamin, on vient d'écouter
+Florian Thauvin.
+
+82
+00:07:07,000 --> 00:07:10,000
+Il y avait 1-1 à la pause
+entre le PSG et l'OM.
+
+83
+00:07:10,000 --> 00:07:13,000
+Ca n'avait pas été simple
+en 1re mi-temps.
+
+84
+00:07:14,000 --> 00:07:17,000
+-Non. C'est vrai qu'on marque
+tôt dans la rencontre.
+
+85
+00:07:17,000 --> 00:07:20,000
+Puis il y a une belle réaction
+de la part de Marseille.
+
+86
+00:07:21,000 --> 00:07:23,000
+Ils restent dans le match.
+
+87
+00:07:23,000 --> 00:07:28,000
+Les débats sont assez équilibrés.
+
+88
+00:07:28,000 --> 00:07:31,000
+Mais il nous reste 45 minutes
+pour faire la différence.
+
+89
+00:07:32,000 --> 00:07:35,000
+-Il se dit quoi à la mi-temps.
+Vous avez été bousculés.
+
+90
+00:07:36,000 --> 00:07:38,000
+Vous restez sereins,
+
+91
+00:07:38,000 --> 00:07:42,000
+ou vous allez devoir monter
+le curseur pour bouger cet OM ?
+
+92
+00:07:43,000 --> 00:07:46,000
+-Il y a de la sérénité.
+L'équipe est bien rodée,
+
+93
+00:07:46,000 --> 00:07:50,000
+on se connaît bien.
+On est assez "force tranquille".
+
+94
+00:07:50,000 --> 00:07:52,000
+Mais il ne faut pas se relâcher,
+
+95
+00:07:52,000 --> 00:07:55,000
+car il y a de la qualité en face.
+
+96
+00:07:55,000 --> 00:07:57,000
+Ils sauront exploiter
+le moindre faux-pas.
+
+97
+00:07:58,000 --> 00:08:02,000
+Nos adversaires se donnent
+beaucoup en 1re mi-temps.
+
+98
+00:08:02,000 --> 00:08:05,000
+Et ils ont tendance à lâcher
+physiquement par la suite,
+
+99
+00:08:05,000 --> 00:08:07,000
+grâce à notre possession de balle.
+
+100
+00:08:08,000 --> 00:08:10,000
+Il faut jouer sur nos forces.
+
+101
+00:08:10,000 --> 00:08:13,000
+On doit rester sereins
+et aussi déterminés,
+
+102
+00:08:13,000 --> 00:08:18,000
+car pour gagner une finale,
+il faut sortir les crocs.
+
+103
+00:08:18,000 --> 00:08:22,000
+-On va voir le rouleau-compresseur
+parisien en 2e mi-temps.
+
+104
+00:08:23,000 --> 00:08:25,000
+-Oui, c'est un peu ça.
+
+105
+00:08:25,000 --> 00:08:29,000
+On est resté dans le match,
+il faut encore faire la différence.
+
+106
+00:08:30,000 --> 00:08:33,000
+Et conserver l'avantage
+jusqu'au bout.
+
+107
+00:08:33,000 --> 00:08:38,000
+-C'est reparti. 1-1 à la pause
+entre le PSG et l'OM.
+
+108
+00:08:38,000 --> 00:08:44,000
+Et vous allez voir, ça va marquer
+très vite. C'est parti.
+
+109
+00:08:47,000 --> 00:08:50,000
+On va reparler de la 1re période.
+
+110
+00:08:51,000 --> 00:08:54,000
+C'était mal embarqué pour les
+Marseillais, avec l'ouverture du
+
+111
+00:08:54,000 --> 00:08:55,000
+score de Blaise Matuidi.
+
+112
+00:08:56,000 --> 00:08:58,000
+Florian Thauvin avait raison.
+
+113
+00:08:58,000 --> 00:09:01,000
+Ils ont montré un vrai visage
+d'équipe.
+
+114
+00:09:01,000 --> 00:09:05,000
+- E. Petit : Et surtout, un mental
+que l'on a rarement vu pendant
+
+115
+00:09:05,000 --> 00:09:06,000
+toute leur saison.
+
+116
+00:09:08,000 --> 00:09:09,000
+Ils ont une pression énorme.
+
+117
+00:09:09,000 --> 00:09:17,000
+Revenir dans ce match a permis à
+Marseille de ne pas laisser les
+
+118
+00:09:17,000 --> 00:09:19,000
+Parisiens s'installer durablement.
+
+119
+00:09:21,000 --> 00:09:22,000
+- K. Boudaoud : On va revoir les
+buts.
+
+120
+00:09:22,000 --> 00:09:25,000
+Mésentente dans la défense
+marseillaise.
+
+121
+00:09:27,000 --> 00:09:28,000
+Karim Rekik a dû couvrir.
+
+122
+00:09:31,000 --> 00:09:34,000
+<c.yellow>- E. Petit : Ca a été trop souvent</c>
+<c.yellow>le cas.</c>
+
+123
+00:09:34,000 --> 00:09:39,000
+<c.yellow>Angel Di Maria dézonait souvent et</c>
+<c.yellow>emmenait Karim Rekik avec lui.</c>
+
+124
+00:09:39,000 --> 00:09:43,000
+<c.yellow>Mauricio Isla n'a pas vu le</c>
+<c.yellow>déplacement de Matuidi dans son</c>
+
+125
+00:09:43,000 --> 00:09:44,000
+<c.yellow>dos.</c>
+
+126
+00:09:45,000 --> 00:09:47,000
+<c.yellow>Il avait un temps d'avance sur lui.</c>
+
+127
+00:09:47,000 --> 00:09:51,000
+<c.yellow>- K. Boudaoud : Bijou extérieur du</c>
+<c.yellow>pied gauche d'Angel Di Maria.</c>
+
+128
+00:09:54,000 --> 00:09:57,000
+<c.yellow>Et un nouvel exploit de Florian</c>
+<c.yellow>Thauvin.</c>
+
+129
+00:10:02,000 --> 00:10:05,000
+<c.yellow>- E. Petit : Dès qu'il franchit le</c>
+<c.yellow>cap mental et prend des</c>
+
+130
+00:10:06,000 --> 00:10:09,000
+<c.yellow>responsabilités, dès qu'il</c>
+<c.yellow>s'impose, il fait de très belles</c>
+
+131
+00:10:09,000 --> 00:10:10,000
+<c.yellow>choses.</c>
+
+132
+00:10:14,000 --> 00:10:16,000
+- K. Boudaoud : On n'a pas eu le
+temps de gamberger.
+
+133
+00:10:19,000 --> 00:10:23,000
+- E. Petit : Ca n'a pas permis aux
+Parisiens de tuer le match.
+
+134
+00:10:25,000 --> 00:10:27,000
+C'est un match équilibré.
+
+135
+00:10:27,000 --> 00:10:30,000
+Il n'y a pas énormément
+d'occasions.
+
+136
+00:10:30,000 --> 00:10:33,000
+C'est surtout une bataille au
+milieu de terrain.
+
+137
+00:10:33,000 --> 00:10:36,000
+Les 2 équipes n'arrivent pas à se
+livrer complètement.
+
+138
+00:10:39,000 --> 00:10:43,000
+Côté parisien, ils doivent régler
+le problème de l'entre-jeu.
+
+139
+00:10:43,000 --> 00:10:46,000
+On voit très peu les attaquants.
+
+140
+00:10:55,000 --> 00:11:01,000
+Ils coupent la transition milieu de
+l'attaque.
+
+141
+00:11:01,000 --> 00:11:05,000
+Les Marseillais empêchent les
+Parisiens d'être face au jeu.
+
+142
+00:11:07,000 --> 00:11:09,000
+- K. Boudaoud : C'est ce qu'il
+fallait mettre dans cette finale
+
+143
+00:11:09,000 --> 00:11:11,000
+pour résister à ce Paris
+Saint-Germain.
+
+144
+00:11:11,000 --> 00:11:15,000
+Un peu plus d'agressivité et de jeu
+d'équipe.
+
+145
+00:11:16,000 --> 00:11:20,000
+Ca faisait défaut à l'OM, cette
+saison.
+
+146
+00:11:20,000 --> 00:11:23,000
+- E. Petit : C'est ce qu'a dit
+Florian Thauvin.
+
+147
+00:11:24,000 --> 00:11:28,000
+A partir du moment où l'Olympique
+de Marseille joue en équipe et pas
+
+148
+00:11:28,000 --> 00:11:31,000
+en soliste, ça marche.
+
+149
+00:11:31,000 --> 00:11:36,000
+C'est pour ça que Passi a vu qu'il
+fallait mettre un compagnon à
+
+150
+00:11:36,000 --> 00:11:37,000
+Batshuayi.
+
+151
+00:11:42,000 --> 00:11:47,000
+Mêmes les Parisiens ne pourraient
+pas gagner s'il n'y avait pas un
+
+152
+00:11:47,000 --> 00:11:48,000
+collectif derrière.
+
+153
+00:11:51,000 --> 00:11:55,000
+<c.yellow>- K. Boudaoud : On va voir si ce</c>
+<c.yellow>collectif parisien, qui a souvent</c>
+
+154
+00:11:55,000 --> 00:12:00,000
+<c.yellow>brillé cette saison dans</c>
+<c.yellow>l'hexagone, va se mettre en route</c>
+
+155
+00:12:02,000 --> 00:12:10,000
+<c.yellow>pour glaner cette 10e Coupe de</c>
+<c.yellow>France face à l'OM de Mandanda.</c>
+
+156
+00:12:20,000 --> 00:12:22,000
+<c.yellow>Les voilà.</c>
+
+157
+00:12:22,000 --> 00:12:27,000
+<c.yellow>Parisiens et Marseillais de retour</c>
+<c.yellow>sur la pelouse du Stade de France.</c>
+
+158
+00:13:00,000 --> 00:13:06,000
+<c.yellow>Beaucoup de tension de la part des</c>
+<c.yellow>2 équipes.</c>
+
+159
+00:13:06,000 --> 00:13:10,000
+<c.yellow>Rodolphe Gaudin n'a pas eu beaucoup</c>
+<c.yellow>de succès, aujourd'hui.</c>
+
+160
+00:13:13,000 --> 00:13:16,000
+<c.yellow>Une belle bataille au milieu.</c>
+
+161
+00:13:20,000 --> 00:13:24,000
+<c.yellow>- R. G. : Ce n'est pas souvent que</c>
+<c.yellow>Blaise Matuidi refuse de parler au</c>
+
+162
+00:13:24,000 --> 00:13:25,000
+<c.yellow>micro.</c>
+
+163
+00:13:26,000 --> 00:13:27,000
+<c.yellow>Il a dit qu'il préférait se</c>
+<c.yellow>concentrer.</c>
+
+164
+00:13:28,000 --> 00:13:31,000
+<c.yellow>Il est peut-être insatisfait du</c>
+<c.yellow>rendement global de cette équipe</c>
+
+165
+00:13:32,000 --> 00:13:33,000
+<c.yellow>sur cette 1re mi-temps.</c>
+
+166
+00:13:34,000 --> 00:13:38,000
+<c.yellow>On aura un mot des Parisiens à la</c>
+<c.yellow>fin du match.</c>
+
+167
+00:13:43,000 --> 00:13:47,000
+<c.yellow>- K. B. : Ils sont concentrés à</c>
+<c.yellow>l'entame de cette seconde période.</c>
+
+168
+00:13:57,000 --> 00:14:00,000
+<c.yellow>Il y a du monde.</c>
+
+169
+00:14:05,000 --> 00:14:09,000
+<c.yellow>Matuidi a été servi dans la surface</c>
+<c.yellow>de réparation.</c>
+
+170
+00:14:10,000 --> 00:14:15,000
+<c.yellow>Penalty immédiatement sifflé après</c>
+<c.yellow>la faute de N'Koulou.</c>
+
+171
+00:14:21,000 --> 00:14:25,000
+<c.yellow>- E. P. : Les Marseillais ne sont</c>
+<c.yellow>pas entrés dans cette 2e mi-temps.</c>
+
+172
+00:14:26,000 --> 00:14:31,000
+<c.yellow>- K. B. : Il a empêché Matuidi de</c>
+<c.yellow>jouer le ballon.</c>
+
+173
+00:14:35,000 --> 00:14:39,000
+<c.yellow>Aucune hésitation de la part de</c>
+<c.yellow>l'arbitre.</c>
+
+174
+00:14:49,000 --> 00:14:57,000
+<c.yellow>155e but au bout du pied pour</c>
+<c.yellow>Ibrahimovic.</c>
+
+175
+00:14:58,000 --> 00:15:00,000
+<c.yellow>Il est face à Mandanda.</c>
+
+176
+00:15:03,000 --> 00:15:06,000
+<c.yellow>Il ne faut pas avoir le coeur</c>
+<c.yellow>fragile.</c>
+
+177
+00:15:08,000 --> 00:15:10,000
+<c.yellow>But.</c>
+
+178
+00:15:12,000 --> 00:15:15,000
+<c.yellow>2-1 pour le Paris Saint-Germain.</c>
+
+179
+00:15:17,000 --> 00:15:21,000
+<c.yellow>Ibrahimovic et son 155e but sous</c>
+<c.yellow>les couleurs du PSG.</c>
+
+180
+00:16:03,000 --> 00:16:09,000
+<c.yellow>Adrien Rabiot a pu envoyer son</c>
+<c.yellow>ballon dans la surface de</c>
+
+181
+00:16:09,000 --> 00:16:10,000
+<c.yellow>réparation.</c>
+
+182
+00:16:14,000 --> 00:16:20,000
+<c.yellow>Et Marseillais auront-ils encore de</c>
+<c.yellow>la ressource pour égaliser, comme</c>
+
+183
+00:16:21,000 --> 00:16:22,000
+<c.yellow>ils l'ont fait tout à l'heure ?</c>
+
+184
+00:16:25,000 --> 00:16:32,000
+<c.yellow>- E. P. : Le jeu a basculé d'un</c>
+<c.yellow>côté comme de l'autre assez</c>
+
+185
+00:16:32,000 --> 00:16:33,000
+<c.yellow>rapidement.</c>
+
+186
+00:16:45,000 --> 00:16:48,000
+<c.yellow>- K. B. : Attention à</c>
+<c.yellow>Florian Thauvin dans la surface.</c>
+
+187
+00:16:53,000 --> 00:16:56,000
+<c.yellow>- E. P. : Quand on est en défense</c>
+<c.yellow>centrale et que l'on sait que l'on</c>
+
+188
+00:16:56,000 --> 00:17:00,000
+<c.yellow>n'est pas sécurisé avec une</c>
+<c.yellow>couverture mutuelle d'un autre</c>
+

@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\gRPC\**" />
+    <Compile Remove="Interfaces\Services\**" />
+    <Compile Remove="Interfaces\Settings\**" />
+    <EmbeddedResource Remove="Interfaces\gRPC\**" />
+    <EmbeddedResource Remove="Interfaces\Services\**" />
+    <EmbeddedResource Remove="Interfaces\Settings\**" />
+    <None Remove="Interfaces\gRPC\**" />
+    <None Remove="Interfaces\Services\**" />
+    <None Remove="Interfaces\Settings\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AM\AM.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App_Data\Configuration\ApplicationSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="App_Data\Configuration\SubtitleColorSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="App_Data\Configuration\SrtEncodingSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\Managers\" />
+    <Folder Include="Interfaces\Store\" />
+    <Folder Include="Store\" />
+  </ItemGroup>
+
+</Project>

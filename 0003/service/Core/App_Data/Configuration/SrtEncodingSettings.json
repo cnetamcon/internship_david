@@ -1,0 +1,56 @@
+﻿{
+  "pairs": [
+    {
+      "from": "0xC3A9",
+      "to": "0xC265"
+    },
+    {
+      "from": "0xC3AF",
+      "to": "0xC869"
+    },
+    {
+      "from": "0xC3A0",
+      "to": "0xC161"
+    },
+    {
+      "from": "0xC3AA",
+      "to": "0xC365"
+    },
+    {
+      "from": "0xC3AB",
+      "to": "0xC865"
+    },
+    {
+      "from": "0xC3AE",
+      "to": "0xC369"
+    },
+    {
+      "from": "0xC3B9",
+      "to": "0xC175"
+    },
+    {
+      "from": "0x5f",
+      "to": "0x23"
+    },
+    {
+      "from": "0xC3A8",
+      "to": "0xC165"
+    },
+    {
+      "from": "0xC3A2",
+      "to": "0xC361"
+    },
+    {
+      "from": "0xC3B4",
+      "to": "0xC36F"
+    },
+    {
+      "from": "0xC3BB",
+      "to": "0xC375"
+    },
+    {
+      "from": "0xC3A7",
+      "to": "0xCB63"
+    }
+  ]
+}
