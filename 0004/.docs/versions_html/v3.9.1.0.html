@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>stl version v3.9.1.0</h1> 
+    <p>Date: 2024.12.21</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <p>- #65 #autosub Add a speaker confidence threshold</p> 
+    <p>- #67 #autosub Add char before speaker name (char should be in conf file)</p> 
+    <p></p> 
+    <h2>Features</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <h3>#autosub Add a speaker confidence threshold</h3> 
+    <p></p> 
+    <p>Added two parameters `confidence_threshold` and `unrecognized_speaker_name` to settings file `SpeechmaticsSettings.json`</p> 
+    <p></p> 
+    <pre>
+<code>
+ &quot;speaker_api&quot;: { 
+   &quot;uri&quot;: &quot;http://192.168.101.52:18082/jobs/GetSpeaker&quot;, 
+   &quot;model&quot;: &quot;politicsV1&quot;, 
+   &quot;stream_name&quot;: &quot;SRC/EXT2&quot;, 
+   &quot;confidence_threshold&quot;: 0.98, 
+   &quot;unrecognized_speaker_name&quot;: &quot;Unrecognized&quot; 
+ } 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>If the remote api returns a speaker with the `confidence` value less then `confidence_threshold` when recognizing a speaker, we set the speaker name from the `unrecognized_speaker` settings.</p> 
+    <p></p> 
+    <p>In the subtitles for the speaker `S1`, the name from `unrecognized_speaker` will be matched, but on the next iteration, an attempt will be made to get the name from the remote api again.</p> 
+    <p></p> 
+    <p></p> 
+    <h3>#autosub Add char before speaker name (char should be in conf file)</h3> 
+    <p></p> 
+    <p>Added two parameters `speaker_prefix` to settings file `SpeechmaticsSettings.json`</p> 
+    <p></p> 
+    <pre>
+<code>
+ &quot;speaker_api&quot;: { 
+   &quot;uri&quot;: &quot;http://192.168.101.52:18082/jobs/GetSpeaker&quot;, 
+   &quot;model&quot;: &quot;politicsV1&quot;, 
+   &quot;stream_name&quot;: &quot;SRC/EXT2&quot;, 
+   &quot;confidence_threshold&quot;: 0.98, 
+   &quot;unrecognized_speaker_name&quot;: &quot;Unrecognized&quot;, 
+   &quot;speaker_prefix&quot;: &quot;- &quot; 
+ } 
+ </code>
+    </pre> 
+    <p></p> 
+    <pre>
+<code>
+ ---------------------------------------- 
+  
+ [15] - Unrecognized: So I want to start 
+ [17] by offering you a. And 
+  
+ ---------------------------------------- 
+  
+ [15] - Jean Dupont: by offering you a. 
+ [17] And all it requires of you is this 
+  
+ ---------------------------------------- 
+  
+ [15] - J. Dupont: all it requires of you 
+ [17] Jean Durand: is this two minutes. 
+  
+ ---------------------------------------- 
+  
+ [15] - Jean Durand: is this two minutes. 
+ [17] But before I give it 
+  
+ ---------------------------------------- 
+ </code>
+    </pre> 
+    <p></p> 
+    <p></p> 
+    <p></p> 
+    <p></p></main>
+  </body>
+</html>
+

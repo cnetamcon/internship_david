@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>stl version v3.8.8.1</h1> 
+    <p>Date: 2024.09.23</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <p>- #35 #autosub Don't remove 0x0D if there is not enough space but remove the color byte</p> 
+    <p></p> 
+    <h2>Features</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <h3>#autosub Don't remove 0x0D if there is not enough space but remove the color byte</h3> 
+    <p></p> 
+    <p>We have some parameters for Newfor configuration in the `ApplicationSettings.json` file.</p> 
+    <p></p> 
+    <p>- `max_bytes_for_line` Defines the maximum number of bytes for a Newfor line</p> 
+    <p>- `is_use_length_37` Parameter that determines whether or not to remove the system byte 0x0A from the line if the number of bytes is greater than `max_bytes_for_line`+1.</p> 
+    <p></p> 
+    <p>We don't remove `0x0D` byte from the Newfor for now, but we don't set the color byte if subtitle length less than `newfor.max_bytes_for_line`.</p> 
+    <p></p> 
+    <p>If a subtitle line longer than the number of bytes specified in `newfor.max_bytes_for_line` is received for conversion to Newfor, we do the following:</p> 
+    <p></p> 
+    <p>1. If there are more bytes in the Newfor line than specified in the `newfor.max_bytes_for_line` settings - We do not specify the color byte between `0x0D` and `0x0B 0x0B` AND set line length to `newfor.max_bytes_for_line` + 1</p> 
+    <p>2. If there are more than `newfor.max_bytes_for_line` + 1 AND `newfor.is_use_length_37` is True - We do not specify the system byte 0x0A AND set line length to `newfor.max_bytes_for_line` + 2</p> 
+    <p></p> 
+    <p>So that max line length might be `newfor.max_bytes_for_line` + 2</p> 
+    <p></p> 
+    <p>Examples:</p> 
+    <p></p> 
+    <p>`newfor.max_bytes_for_line`: 35</p> 
+    <p>`newfor.is_use_length_37`: True</p> 
+    <p></p> 
+    <p>2 lines:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 1th line length: 36 
+  
+ Text: Test-1Test-1Test-1Test-1Test-1Test-1 
+ Number: 10 
+ Color: 0 
+ Text: Test-2 
+ Number: 12 
+ Color: 3 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Newfor:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 8F 8C 15 8C 0D 0B 0B 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 0A 15 A1 0D 03 0B 0B 54 65 73 74 2D 32 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 0A 10 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>2 lines:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 1th line length: 37 
+  
+ Text: Test-1Test-1Test-1Test-1Test-1Test-11 
+ Number: 10 
+ Color: 0 
+ Text: Test-2 
+ Number: 12 
+ Color: 3 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Newfor:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 8F 8C 15 8C 0D 0B 0B 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 31 15 A1 0D 03 0B 0B 54 65 73 74 2D 32 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 0A 10&quot;)] 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>2 lines:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 1th line length: 39 
+  
+ Text: Test-1Test-1Test-1Test-1Test-1Test-1111 
+ Number: 10 
+ Color: 0 
+ Text: Test-2 
+ Number: 12 
+ Color: 3 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Newfor:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 8F 8C 15 8C 0D 0B 0B 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 31 15 A1 0D 03 0B 0B 54 65 73 74 2D 32 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 0A 10&quot;)] 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>2 lines:</p> 
+    <p></p> 
+    <pre>
+<code>
+ Text: Test-1 
+ Number: 10 
+ Color: 0 
+ Text: Test-2 
+ Number: 12 
+ Color: 3 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Newfor:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 8F 8C 15 8C 0D 00 0B 0B 54 65 73 74 2D 31 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 0A 15 A1 0D 03 0B 0B 54 65 73 74 2D 32 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 0A 10 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>1 line:</p> 
+    <p></p> 
+    <pre>
+<code>
+ Text: Test 
+ Number: 10 
+ Color: 0 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Newfor:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 8F C7 15 8C 0D 00 0B 0B 54 65 73 74 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 0A 10 
+ </code>
+    </pre> 
+    <p></p> 
+    <p></p> 
+    <p></p> 
+    <p></p></main>
+  </body>
+</html>
+

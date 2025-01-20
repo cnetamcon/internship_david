@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>stl version v3.8.3.0</h1> 
+    <p>Date: 2024.07.31</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p>---</p> 
+    <p></p> 
+    <p>- [16] #autosub Add the ability to combine multiple modes "subtitle_write_mode"</p> 
+    <p>- [17] #autosub Wait some iterations to fill subtitle lines if there are not fully completed</p> 
+    <p></p> 
+    <h2>Features</h2> 
+    <p>---</p> 
+    <p></p> 
+    <h3>#autosub Add the ability to combine multiple modes "subtitle_write_mode"</h3> 
+    <p></p> 
+    <p>Changed `subtitle_write_mode` settings in file `ApplicationSettings.json` from single value to array</p> 
+    <p></p> 
+    <p>Example:</p> 
+    <p></p> 
+    <pre>
+<code>
+ { 
+   &quot;grpc_service_ip&quot;: &quot;127.0.0.1&quot;, 
+   &quot;grpc_service_port&quot;: 9740, 
+   &quot;subtitles_timeout_ms&quot;: 2000, 
+   &quot;subtitle_lines&quot;: &quot;8,14&quot;, 
+   &quot;subtitle_start_mode&quot;: 1, 
+   &quot;subtitle_write_mode&quot;: [ 0, 1, 2 ], // &lt;--- Changed to Array 
+   &quot;subtitle_srt_path&quot;: &quot;./tmp/subtitle.srt&quot;, 
+   &quot;subtitle_latest_path&quot;: &quot;./tmp/latest.sub&quot;, 
+   &quot;subtitle_gen_line_mode&quot;: 0 
+ } 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Now can be activated all modes </p> 
+    <p>- Send via TCP or UDP as Newfor</p> 
+    <p>- Write to SRT file</p> 
+    <p>- Write latest subtitle to a file as simple text</p> 
+    <p></p> 
+    <img src='../attachments/Screenshot_4964.png' alt='' /> 
+    <p></p> 
+    <h3>#autosub Wait some iterations to fill subtitle lines if there are not fully completed</h3> 
+    <p></p> 
+    <p>The problem is that when receiving a subtitle - the line may not be completely filled yet.</p> 
+    <p></p> 
+    <p>Thus, we get a duplicate subtitle.</p> 
+    <p></p> 
+    <p>For example:</p> 
+    <p></p> 
+    <pre>
+<code>
+ - ... 
+ - So I want to start by offering you | a free no tech life hack 
+ - So I want to start by offering you | a free no tech life hack, and all 
+ - ... 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>To avoid such a situation and not to lose the last subtitle when the transcription stops coming, we add a new parameter `subtitle_extract_attempts` to the settings file `ApplicationSettings.json`, which specifies the number of iterations that will wait for the Transcription to come in before giving an incompletely formed subtitle. One iteration is specified milliseconds in `subtitles_timeout_ms`.</p> 
+    <p></p> 
+    <img src='../attachments/Screenshot_4967.png' alt='' /></main>
+  </body>
+</html>
+

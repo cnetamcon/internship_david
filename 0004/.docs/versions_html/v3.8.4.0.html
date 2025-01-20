@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>stl version v3.8.4.0</h1> 
+    <p>Date: 2024.08.30</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <p>- #18 #autosub Make separate replaceByteDictionnary for the SRT and Sub.txt output</p> 
+    <p>- #20 #autosub Generate Newfor start depend on lines amount</p> 
+    <p></p> 
+    <h2>Features</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <h3>#autosub Make separate replaceByteDictionnary for the SRT and Sub.txt output</h3> 
+    <p></p> 
+    <p>Settings file `ReplaceByteDictionary.json` was renamed to `ReplaceByteDictionaryForNewfor.json`</p> 
+    <p></p> 
+    <p>Added settings file `ReplaceByteDictionaryForSimpleText.json` to replace bytes in received transcription in `ApplicationSettings.json` `subtitle_write_mode` 1 and 2.</p> 
+    <p></p> 
+    <p></p> 
+    <h3>#autosub Generate Newfor start depend on lines amount</h3> 
+    <p></p> 
+    <p>Changed the construction of the Newfor subtitle.</p> 
+    <p></p> 
+    <ul> 
+      <li>*Before:**</li> 
+    </ul> 
+    <p>The subtitle always starts with `0x8F 0x02`</p> 
+    <p></p> 
+    <ul> 
+      <li>*After:**</li> 
+    </ul> 
+    <p>If the subtitle contains one line - Newfor starts with `0x8F 0xC7`</p> 
+    <p></p> 
+    <p>If the subtitle contains two or more lines - Newfor starts with `0x8F 0x8C`</p> 
+    <p></p> 
+    <p></p> 
+    <p></p> 
+    <p></p></main>
+  </body>
+</html>
+

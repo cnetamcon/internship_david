@@ -1,0 +1,5 @@
+- [ ] Create a diagram of the architecture of duplicate the words
+- [ ] Change sequence of convert transcription to subtitle
+- [ ] Make filter to clear duplicates from transcription
+- [ ] Move to the next line if added symbol is punctuation
+- [ ] Change subtitle delivery process. Wait until the subtitle is fully filled

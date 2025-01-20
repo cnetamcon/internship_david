@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>stl version v3.8.2.0</h1> 
+    <p>Date: 2024.07.30</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p>---</p> 
+    <p></p> 
+    <p>- [14] #autosub Make new start mode to choose between auto-start or data-router</p> 
+    <p>- [15] #autosub Create a new subtitle generation mode. Keep latest line or generation new lines</p> 
+    <p> </p> 
+    <h2>Features</h2> 
+    <p>---</p> 
+    <p></p> 
+    <h3>#autosub Make new start mode to choose between auto-start or data-router</h3> 
+    <p></p> 
+    <p>Added parameter `subtitle_start_mode` into settings file `ApplicationSettings.json` to define the service behavior at startup</p> 
+    <p></p> 
+    <p>`subtitle_start_mode` can have 2 modes</p> 
+    <p></p> 
+    <pre>
+<code>
+ 0 - Waits for the command to start transcription from DataRuter, which connects to the AutoSub service via gRPC 
+ 1 - Transcription starts automatically after the service starts. 
+     In this case, the transcription language is taken from a file `SpeechmaticsSettings.json` `speechmatics.language` 
+ </code>
+    </pre> 
+    <p></p> 
+    <h3>#autosub Create a new subtitle generation mode. Keep latest line or generation new lines</h3> 
+    <p></p> 
+    <p>Added parameter `subtitle_gen_line_mode` into settings file `ApplicationSettings.json` to define the service behavior to build a new subtitle when all lines for subtitle is full - for the next subtitle</p> 
+    <p></p> 
+    <p>`subtitle_gen_line_mode` can have 2 modes</p> 
+    <p></p> 
+    <p>0 - Remove first line. This will move all lines up one position</p> 
+    <p>1 - Remove all lines. We wait until all the lines are filled in</p> 
+    <p></p> 
+    <p>Mode 0:</p> 
+    <p></p> 
+    <pre>
+<code>
+ Write: &#39;So I want to start by offering you | a free no tech life hack, and all&#39; 
+ Write: &#39;a free no tech life hack, and all | it requires of you is this that you&#39; 
+ Write: &#39;it requires of you is this that you | change your posture for two minutes&#39; 
+ Write: &#39;change your posture for | two minutes. But before I give it&#39; 
+ Write: &#39;two minutes. But before I give it | away, I want to ask you to right&#39; 
+ Write: &#39;away, I want to ask you to right | now, do a little audit of your body&#39; 
+ Write: &#39;now, do a little audit of your body | and what you&#39;re doing with your&#39; 
+ Write: &#39;and what you&#39;re doing with your | body. So how many of you are sort&#39; 
+ Write: &#39;body. So how many of you are sort | of making yourself smaller? Maybe&#39; 
+ Write: &#39;of making yourself smaller? Maybe | you&#39;re hunching, um, crossing your&#39; 
+ Write: &#39;you&#39;re hunching, um, crossing your | legs, maybe wrapping your ankles.&#39; 
+ Write: &#39;legs, maybe wrapping your ankles. | Sometimes we hold on to our arms&#39; 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Mode 1:</p> 
+    <p></p> 
+    <pre>
+<code>
+ Write: &#39;So I want to start by offering you | a free no tech life hack, and all&#39; 
+ Write: &#39;it requires of you is this that you | change your posture for two minutes&#39; 
+ Write: &#39;. But before I give it away, I want | to ask you to right now, do a&#39; 
+ Write: &#39;little audit of your body and what | you&#39;re doing with your body. So how&#39; 
+ Write: &#39;many of you are sort of making | yourself smaller? Maybe you&#39;re&#39; 
+ Write: &#39;hunching, um, crossing your legs, | maybe wrapping your ankles.&#39; 
+ Write: &#39;Sometimes we hold on to our arms | like this. Uh, sometimes we spread&#39; 
+ Write: &#39;out. I see you, um, so I want you | to pay attention to what you&#39;re&#39; 
+ Write: &#39;doing right now. We&#39;re going to | come back to that in a few minutes&#39; 
+ Write: &#39;. And I&#39;m hoping that if you sort | of learn to tweak this a little bit&#39; 
+ Write: &#39;, it could significantly change the | way your life unfolds. Um, so we&#39;re&#39; 
+ Write: &#39;really fascinated with body | language, and we&#39;re particularly&#39; 
+ Write: &#39;interested in other people&#39;s body | language. You know, we&#39;re&#39; 
+ </code>
+    </pre> 
+    <p></p></main>
+  </body>
+</html>
+

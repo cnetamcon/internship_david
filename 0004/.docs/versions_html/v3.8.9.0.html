@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>stl version v3.8.9.0</h1> 
+    <p>Date: 2024.11.27</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <p>- #37 #datarouter Manage line from datarouter for autosub</p> 
+    <p>- #40 #datarouter Manage the color dynamically in Datarouter and Autosub</p> 
+    <p>- #44 #datarouter Remove all color management except for manual choice from Webpage</p> 
+    <p>- #43 #autosub Set new line for new speaker</p> 
+    <p>- #49 #autosub Change line completing mechanism to add check length of latest two words</p> 
+    <p></p> 
+    <h2>Features</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <h3>Manage line from datarouter for autosub</h3> 
+    <p></p> 
+    <p>The design for working with the <strong>AutoSub</strong> color and line number parameters has been changed.</p> 
+    <p></p> 
+    <img src='../attachments/Screenshot_5476.png' alt='' /> 
+    <p></p> 
+    <p>Added 6 buttons for selecting colors</p> 
+    <p></p> 
+    <p>1. White</p> 
+    <p>2. Green</p> 
+    <p>3. Red</p> 
+    <p>4. Magenta</p> 
+    <p>5. Cyan</p> 
+    <p>6. Black</p> 
+    <p></p> 
+    <p>Two buttons for changing the line number. When changing lines up or down, only the first line number is taken into account. The shift occurs in increments of two lines.</p> 
+    <p></p> 
+    <p>The <strong>Auto-Sub</strong> button changes color to green when subtitles are actively broadcasting and to gray in standby mode. If the <strong>Auto-Sub</strong> option is unavailable, the "Offline" button in red is displayed instead of the <strong>Auto-Sub</strong> button.</p> 
+    <p></p> 
+    <h3>Manage the color dynamically in Datarouter and Autosub</h3> 
+    <p></p> 
+    <p>When we change the color in <strong>DataRouter</strong> we change the color for all `AutoSub` `Speaker Color`.</p> 
+    <p></p> 
+    <img src='../attachments/Screenshot_5614.png' alt='scr' /> 
+    <p></p> 
+    <img src='../attachments/Screenshot_5615.png' alt='scr' /> 
+    <p></p> 
+    <p></p> 
+    <h3>Datarouter. Remove all color management except for manual choice from Webpage</h3> 
+    <p></p> 
+    <p>Before:</p> 
+    <p></p> 
+    <img src='../attachments/Screenshot_5616.png' alt='scr' /> 
+    <p></p> 
+    <p>After:</p> 
+    <p></p> 
+    <img src='../attachments/Screenshot_5617.png' alt='scr' /> 
+    <p></p> 
+    <p></p> 
+    <h3>Autosub. Set new line for new speaker</h3> 
+    <p></p> 
+    <p>If the transcription contains a new speaker - Move the word to a new line.</p> 
+    <p></p> 
+    <img src='../attachments/Screenshot_5618.png' alt='scr' /> 
+    <p></p> 
+    <p></p> 
+    <h3>#autosub Change line completing mechanism to add check length of latest two words</h3> 
+    <p></p> 
+    <p>When a line completed, we look at the last two words.</p> 
+    <p>We call them `N-1` and `N`:</p> 
+    <p></p> 
+    <pre>
+<code>
+ if N  &gt; 3, we do nothing. 
+ If N &lt;= 3, we look at N-1: 
+       if N-1  &gt; 2 : we move N word to the next line 
+       if N-1 &lt;= 2 : we move N-1 and N words to the next line 
+ </code>
+    </pre> 
+    <p></p> 
+    <img src='../attachments/Screenshot_5621.png' alt='scr' /> 
+    <img src='../attachments/Screenshot_5622.png' alt='scr' /> 
+    <img src='../attachments/Screenshot_5623.png' alt='scr' /> 
+    <p></p> 
+    <p></p> 
+    <p></p> 
+    <p></p></main>
+  </body>
+</html>
+

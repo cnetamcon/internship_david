@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>skl version v3.7.1.0</h1> 
+    <p>Date: 2024.06.17</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p>---</p> 
+    <p>- [10] Modify Automation and the Sequence "StreamPrepare" / "StreamExecute" / "StreamStop"</p> 
+    <p></p> 
+    <h2>Features</h2> 
+    <p>---</p> 
+    <h3>Modify Automation and the Sequence "StreamPrepare" / "StreamExecute" / "StreamStop"</h3> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <p>We can get the commands from the following script:</p> 
+    <p></p> 
+    <pre>
+<code>
+ Prepare STL Channel1, file1 
+ Execute STL Channel1, file1 
+ Prepare STL Channel1, file1 
+ Stop Channel1 
+ Execute STL Channel1, file1 
+ Stop Channel1 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>or</p> 
+    <p></p> 
+    <pre>
+<code>
+ Prepare STL Channel1, file1 
+ Execute STL Channel1, file1 
+ Prepare STL Channel1, file2 
+ Stop Channel1 
+ Execute STL Channel1, file2 
+ Stop Channel1 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>If we receive the Prepare command even though we have already executed the Prepare command with the following <strong>AutomationId</strong> AND <strong>ChannelId</strong> - We change the values of the file name and timecode that came in the command, but ignore the next Stop command for this <strong>AutomationId</strong> & <strong>ChannelId</strong>.</p> 
+    <p></p> 
+    <p>Process of the Stream Prepare Command 0x10</p> 
+    <p></p> 
+    <p>1. LACI Bind</p> 
+    <p>2. Change IsActive status to False</p> 
+    <p>3. Set STL file info</p> 
+    <p>4. Set STL entry timecode</p> 
+    <p></p> 
+    <p>Process of the Stream Execute Command 0x11</p> 
+    <p></p> 
+    <p>1. LACI Enable</p> 
+    <p>2. Change IsActive status to True</p> 
+    <p>3. Set STL file info</p> 
+    <p>4. Set STL entry timecode</p> 
+    <p></p> 
+    <p>Process of the Stream Stop Command 0x12</p> 
+    <p></p> 
+    <p>1. We check if there was a repeated Prepare command - skip processing</p> 
+    <p>2. LACI Disable</p> 
+    <p>3. LACI Unbind</p> 
+    <p>4. Change IsActive status to False</p></main>
+  </body>
+</html>
+

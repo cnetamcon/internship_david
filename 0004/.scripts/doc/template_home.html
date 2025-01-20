@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<style>
+  html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  main {
+    display: grid;
+    grid-template-areas: "left-menu content";
+    grid-template-columns: 180px 1fr;
+    height: 100%;
+  }
+
+  .grid-left-menu {
+    grid-area: left-menu;
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  .grid-content {
+    grid-area: content;
+    position: relative;
+    overflow: auto;
+  }
+
+  .left-menu {
+    margin: 0;
+  }
+
+  .left-menu-item {
+    background-color: #00000066;
+    padding: 4px;
+    margin: 2px;
+    cursor: pointer;
+  }
+
+  .left-menu-item:hover {
+    background-color: #00000033;
+  }
+
+  .left-menu-item-selected {
+    background-color: bisque;
+  }
+
+  .main-content {
+    margin: 0;
+    padding: 0;
+    height: 98%;
+  }
+
+  iframe {
+    min-height: 100%;
+    min-width: 100%;
+    border: 0;
+    margin: 0;
+  }
+</style>
+
+<body>
+  <main>
+    <div class="grid-left-menu">
+      <div id="leftmenu" class="left-menu"></div>
+    </div>
+    <div class="grid-content">
+      <div id="maincontent" class="main-content"></div>
+    </div>
+  </main>
+  <script>
+    let versions = [files]; // will be replaced with script
+    const current_version = "current-version"; // will be replaced with script
+
+    let selected_version = null;
+    let container = document.getElementById("leftmenu");
+
+    for (let i = 0; i < versions.length; i++) {
+      let element = document.createElement("div");
+
+      element.innerHTML = versions[i];
+      element.classList.add('left-menu-item');
+      element.dataset.version = versions[i];
+
+      if (versions[i] === current_version) {
+        element.innerHTML += " (current)";
+      }
+
+      element.addEventListener("click", function () {
+        selectVersion(versions[i]);
+      });
+
+      container.appendChild(element);
+    }
+
+    function selectVersion(version) {
+      selected_version = version;
+      let container = document.getElementById("leftmenu");
+      let buttons = container.childNodes.forEach(node => {
+        if (node.dataset.version === selected_version
+          && !node.classList.contains('left-menu-item-selected')) {
+          node.classList.add('left-menu-item-selected');
+        } else if (node.classList.contains('left-menu-item-selected')) {
+          node.classList.remove('left-menu-item-selected');
+        }
+      });
+
+      container = document.getElementById("maincontent");
+      let path = './.docs/versions/' + version + '.html';
+      container.innerHTML = '<iframe src="' + path + '"></iframe>';;
+    }
+
+    if (current_version) {
+      console.log("CURENT VERSION: " + current_version);
+      selectVersion(current_version);
+    }
+  </script>
+</body>
+
+</html>

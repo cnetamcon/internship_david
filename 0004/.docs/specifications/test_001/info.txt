@@ -1,0 +1,6 @@
+sometime we have line 1 copied on line 2
+
+logs are open in VM demo if you want
+
+
+3189 - 6086

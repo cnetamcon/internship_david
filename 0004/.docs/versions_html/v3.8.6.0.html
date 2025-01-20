@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>stl version v3.8.6.0</h1> 
+    <p>Date: 2024.09.11</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <p>- #27 If the word is a punctuation symbol and is added to the beginning of the line, skip this word</p> 
+    <p>- #28 Add settings for Newfor and change Newfor building</p> 
+    <p>- #32 Fix thread race condition when adding words to the words buffer</p> 
+    <p></p> 
+    <h2>Features</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <h3>If the word is a punctuation symbol and is added to the beginning of the line, skip this word</h3> 
+    <p></p> 
+    <p>To prevent a subtitle line from starting with a punctuation mark such as `. , ! ? ;`, the symbol will not be included in the subtitle if it is at the beginning of a new line.</p> 
+    <p></p> 
+    <p>Before:</p> 
+    <p></p> 
+    <pre>
+<code>
+ [18] , ailleurs. 
+ [20] Voil&#224; une matin&#233;e un peu plus calme, 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>After:</p> 
+    <p></p> 
+    <pre>
+<code>
+ [18] ailleurs. 
+ [20] Voil&#224; une matin&#233;e un peu plus calme, 
+  
+ </code>
+    </pre> 
+    <p></p> 
+    <p></p> 
+    <h3>Add settings for Newfor and change Newfor building</h3> 
+    <p></p> 
+    <p>Changed settings file `ApplicationSettings.json`</p> 
+    <p></p> 
+    <p>1. Added parameter `subtitle_line_length` which defines the maximum number of characters in a subtitle line</p> 
+    <p>2. Added section `newfor` for configuring Newfor building. Section `newfor` contains two parameters</p> 
+    <p></p> 
+    <p>- `max_bytes_for_line` Defines the maximum number of bytes for a Newfor line</p> 
+    <p>- `is_use_length_37` Parameter that determines whether or not to remove the system byte 0x0A from the line if the number of bytes is greater than `max_bytes_for_line`+1.</p> 
+    <p></p> 
+    <p>Changed convertation subtitle to Newfor subtitle.</p> 
+    <p></p> 
+    <p>If a subtitle line longer than the number of bytes specified in `newfor.max_bytes_for_line` is received for conversion to Newfor, we do the following:</p> 
+    <p></p> 
+    <p>1. If there are more bytes in the Newfor line than specified in the `newfor.max_bytes_for_line` settings - We do not specify the system byte `0x0D` AND set line length to `newfor.max_bytes_for_line` + 1</p> 
+    <p>2. If there are more than `newfor.max_bytes_for_line` + 1 AND `newfor.is_use_length_37` is True - We do not specify the system byte 0x0A AND set line length to `newfor.max_bytes_for_line` + 2</p> 
+    <p></p> 
+    <p>So that max line length might be `newfor.max_bytes_for_line` + 2</p> 
+    <p></p> 
+    <p>Examples:</p> 
+    <p></p> 
+    <p>`newfor.max_bytes_for_line`: 35</p> 
+    <p>`newfor.is_use_length_37`: True</p> 
+    <p></p> 
+    <p>2 lines:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 1th line length: 36 
+  
+ Text: Test-1Test-1Test-1Test-1Test-1Test-1 
+ Number: 10 
+ Color: 0 
+ Text: Test-2 
+ Number: 12 
+ Color: 3 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Newfor:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 8F 8C 15 8C 00 0B 0B 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 0A 15 A1 0D 03 0B 0B 54 65 73 74 2D 32 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 0A 10 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>2 lines:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 1th line length: 37 
+  
+ Text: Test-1Test-1Test-1Test-1Test-1Test-11 
+ Number: 10 
+ Color: 0 
+ Text: Test-2 
+ Number: 12 
+ Color: 3 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Newfor:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 8F 8C 15 8C 00 0B 0B 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 31 15 A1 0D 03 0B 0B 54 65 73 74 2D 32 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 0A 10&quot;)] 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>2 lines:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 1th line length: 39 
+  
+ Text: Test-1Test-1Test-1Test-1Test-1Test-1111 
+ Number: 10 
+ Color: 0 
+ Text: Test-2 
+ Number: 12 
+ Color: 3 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Newfor:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 8F 8C 15 8C 00 0B 0B 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 54 65 73 74 2D 31 31 15 A1 0D 03 0B 0B 54 65 73 74 2D 32 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 0A 10&quot;)] 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>2 lines:</p> 
+    <p></p> 
+    <pre>
+<code>
+ Text: Test-1 
+ Number: 10 
+ Color: 0 
+ Text: Test-2 
+ Number: 12 
+ Color: 3 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Newfor:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 8F 8C 15 8C 0D 00 0B 0B 54 65 73 74 2D 31 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 0A 15 A1 0D 03 0B 0B 54 65 73 74 2D 32 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 0A 10 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>1 line:</p> 
+    <p></p> 
+    <pre>
+<code>
+ Text: Test 
+ Number: 10 
+ Color: 0 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Newfor:</p> 
+    <p></p> 
+    <pre>
+<code>
+ 8F C7 15 8C 0D 00 0B 0B 54 65 73 74 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 0A 10 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Settings file `ApplicationSettings.json`:</p> 
+    <p></p> 
+    <pre>
+<code>
+ { 
+   &quot;grpc_service_ip&quot;: &quot;127.0.0.1&quot;, 
+   &quot;grpc_service_port&quot;: 9740, 
+   &quot;subtitles_timeout_ms&quot;: 2000, 
+   &quot;subtitle_lines&quot;: &quot;8,14&quot;, 
+   &quot;subtitle_start_mode&quot;: 1, 
+   &quot;subtitle_write_mode&quot;: [0], 
+   &quot;subtitle_srt_path&quot;: &quot;./tmp/subtitle.srt&quot;, 
+   &quot;subtitle_latest_path&quot;: &quot;./tmp/latest.sub&quot;, 
+   &quot;subtitle_gen_line_mode&quot;: 0, 
+   &quot;subtitle_extract_attempts&quot;: 0, 
+   &quot;subtitle_line_length&quot;: 35, 
+   &quot;newfor&quot;: { 
+     &quot;max_bytes_for_line&quot;: 35, 
+     &quot;is_use_length_37&quot;: true 
+   } 
+ } 
+ </code>
+    </pre> 
+    <p></p> 
+    <ul> 
+      <li>*subtitle_start_mode** - defines the application operating mode.</li> 
+    </ul> 
+    <p>1 - Transcription starts automatically after the service starts.</p> 
+    <p>In this case, the transcription language is taken from a file `SpeechmaticsSettings.json` `speechmatics.language`</p> 
+    <p></p> 
+    <ul> 
+      <li>*subtitle_write_mode** - Choose what to do with the received transcriptions. It should be sequence of numbers separated by commas.</li> 
+    </ul> 
+    <p>1: Write to file as SRT</p> 
+    <p>2: Write to file as plain text the latest subtitle</p> 
+    <p></p> 
+    <ul> 
+      <li>*subtitle_srt_path** - if subtitle_write_mode is 1, this is the path to the SRT file</li> 
+    </ul> 
+    <ul> 
+      <li>*subtitle_gen_line_mode** - When all lines for subtitle is full - for the next subtitle</li> 
+    </ul> 
+    <p>1 - Remove all lines. We wait until all the lines are filled in</p> 
+    <p></p> 
+    <ul> 
+      <li>*subtitle_extract_attempts** - specifies the number of iterations that will wait for the Transcription</li> 
+    </ul> 
+    <p></p> 
+    <ul> 
+      <li>*subtitle_line_length** - Defines the maximum number of characters in a subtitle line</li> 
+    </ul> 
+    <ul> 
+      <li>*newfor.max_bytes_for_line** - Defines the maximum number of bytes for a Newfor line</li> 
+    </ul> 
+    <ul> 
+      <li>*newfor.is_use_length_37** - Parameter that determines whether or not to remove the system byte 0x0A from the line if the number of bytes is greater than `max_bytes_for_line`+1.</li> 
+    </ul> 
+    <p></p> 
+    <h3>Fix thread race condition when adding words to the words buffer</h3> 
+    <p></p> 
+    <p>After some time of the service's operation, duplication of streams occurred, due to which repeated words and phrases appeared that were not in the original stream.</p> 
+    <p></p> 
+    <img src='../attachments/Screenshot_5203.png' alt='' /> 
+    <p></p> 
+    <img src='../attachments/Screenshot_5196.png' alt='' /> 
+    <p></p> 
+    <p></p> 
+    <p></p> 
+    <p></p></main>
+  </body>
+</html>
+

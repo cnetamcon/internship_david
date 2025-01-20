@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>stl version v3.8.8.0</h1> 
+    <p>Date: 2024.09.19</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <p>- #33 Subtitle building rework. Changing the punctuation behavior</p> 
+    <p></p> 
+    <h2>Features</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <h3>Subtitle building rework. Changing the punctuation behavior</h3> 
+    <p></p> 
+    <h4>1. Fixed the situation when the subtitle started from the second line. Now all subtitles start from the first line.</h4> 
+    <p></p> 
+    <h4>2. After completing attempts to `subtitle_extract_attempts` to get a subtitle from the buffer, provided that there are no new incoming transcriptions and there are no words in the buffer, an empty subtitle is sent.</h4> 
+    <p></p> 
+    <p>Example:</p> 
+    <p></p> 
+    <pre>
+<code>
+ ---------------------------------------- 
+  
+ [8] yourself smaller? Maybe you&#39;re. 
+ [14] Sometimes we hold on to our arms 
+  
+ ---------------------------------------- 
+  
+ [8] Sometimes we hold on to our arms 
+  
+ ---------------------------------------- 
+  
+ [8] 
+ [14] 
+  
+ ---------------------------------------- 
+ </code>
+    </pre> 
+    <p></p> 
+    <h4>3. Added new parameters to `ApplicationSettings.json`</h4> 
+    <p></p> 
+    <p>   1. <strong>subtitle_punctuation_line_length</strong> - Position in the line after which words after a punctuation mark will be wrapped to a new line</p> 
+    <p>   2. <strong>subtitle_punctuation_line_start</strong> - Line number from which to start wrapping words after a punctuation mark to a new line```</p> 
+    <p></p> 
+    <p>Full Settings:</p> 
+    <p></p> 
+    <pre>
+<code>
+ { 
+   &quot;grpc_service_ip&quot;: &quot;127.0.0.1&quot;, 
+   &quot;grpc_service_port&quot;: 9740, 
+   &quot;subtitles_timeout_ms&quot;: 2000, 
+   &quot;subtitle_lines&quot;: &quot;8,14&quot;, 
+   &quot;subtitle_start_mode&quot;: 1, 
+   &quot;subtitle_write_mode&quot;: [0], 
+   &quot;subtitle_srt_path&quot;: &quot;./tmp/subtitle.srt&quot;, 
+   &quot;subtitle_latest_path&quot;: &quot;./tmp/latest.sub&quot;, 
+   &quot;subtitle_gen_line_mode&quot;: 0, 
+   &quot;subtitle_extract_attempts&quot;: 0, 
+   &quot;subtitle_line_length&quot;: 35, 
+   &quot;subtitle_punctuation_line_length&quot;: 30, 
+   &quot;subtitle_punctuation_line_start&quot;: 2, 
+   &quot;newfor&quot;: { 
+     &quot;max_bytes_for_line&quot;: 35, 
+     &quot;is_use_length_37&quot;: true 
+   } 
+ } 
+ </code>
+    </pre> 
+    <p></p> 
+    <h4>4. The process of wrapping text to the next line when a punctuation mark is encountered has been changed</h4> 
+    <p></p> 
+    <p>The `,` symbol has been added, after which the wrapping to the next line will also be performed.</p> 
+    <p></p> 
+    <p>The symbols after which the wrapping to the next line will be performed: `. , ! ? ;`</p> 
+    <p></p> 
+    <p>Two conditions have been added for wrapping text to the next line after a punctuation mark</p> 
+    <p></p> 
+    <p>    1. The punctuation mark must be at a position in the line greater than or equal to the value specified in `subtitle_line_punctuation_length`</p> 
+    <p>    2. The current line must be greater than or equal to the value specified in `subtitle_punctuation_line_start`. Line numbering starts from 1. The line number for Newfor is specified in the `subtitle_lines` value.</p> 
+    <p></p> 
+    <img src='../attachments/Screenshot_5216.png' alt='' /> 
+    <p></p> 
+    <p></p> 
+    <p></p></main>
+  </body>
+</html>
+

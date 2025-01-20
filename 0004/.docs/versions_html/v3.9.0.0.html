@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>stl version v3.9.0.0</h1> 
+    <p>Date: 2024.12.13</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <p>- #54 #autosub Getting speaker fullname from external api</p> 
+    <p>- #55 #autosub Display FullName if the received transcription is the first transcription of the speaker otherwise ShortName</p> 
+    <p>- #56 #autosub The first line of each subtitle should start with the speaker name</p> 
+    <p>- #60 #autosub Migrate project to .Net9.0</p> 
+    <p></p> 
+    <h2>Features</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <h3>#autosub Getting speaker fullname from external api</h3> 
+    <p></p> 
+    <p>Added `speaker_api` section in the `SpeechmaticsSettings.json`</p> 
+    <p></p> 
+    <pre>
+<code>
+ { 
+   &quot;speaker_api&quot;: { 
+     &quot;uri&quot;: &quot;http://192.168.101.99:8082/jobs/GetSpeaker&quot;, 
+     &quot;model&quot;: &quot;test&quot;, 
+     &quot;stream_name&quot;: &quot;test&quot; 
+   } 
+ } 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>To deactivate requests to the API, simply specify an empty uri string.</p> 
+    <p></p> 
+    <pre>
+<code>
+ { 
+   &quot;speaker_api&quot;: { 
+     &quot;uri&quot;: &quot;&quot;, 
+     &quot;model&quot;: &quot;test&quot;, 
+     &quot;stream_name&quot;: &quot;test&quot; 
+   } 
+ } 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Upon receiving the transcription, the process of audio stream analysis and voice recognition by a third-party API is launched. On the third-party API, pre-prepared models allow us to match the voice with the speaker's name.</p> 
+    <p></p> 
+    <p>We need to send to the third-party API</p> 
+    <p></p> 
+    <p>1. Model - Trained model name</p> 
+    <p>2. StreamName - Name of the audio stream for analysis</p> 
+    <p>3. TcIn - Start time of analysis in UNIX seconds time</p> 
+    <p>4. TcOut - End time of analysis in UNIX seconds time</p> 
+    <p></p> 
+    <p>In response, we receive the name of the speaker, such as `Jean Dupont`, and match it with the speaker's ID.</p> 
+    <p></p> 
+    <p>We get the following:</p> 
+    <p></p> 
+    <p>- Speaker: `S1`</p> 
+    <p>- Fullname: `Jean Dupont`</p> 
+    <p>- Shortname: `J. Dupont`</p> 
+    <p></p> 
+    <p>Next, if there is a received name for speaker `S1`, we substitute the full name for the first mention and ShortName for subsequent mentions.</p> 
+    <p></p> 
+    <p>If a name for speaker `S1` is received, no repeat requests are sent.</p> 
+    <p></p> 
+    <p></p> 
+    <h3>#autosub Display FullName if the received transcription is the first transcription of the speaker otherwise ShortName</h3> 
+    <p></p> 
+    <p></p> 
+    <h3>#autosub The first line of each subtitle should start with the speaker name</h3> 
+    <p></p> 
+    <p>Added `use_speaker_in_subtitle` `(boolean)` parameter in the `ApplicationSettings.json` settings file to activate speaker name in subtitle.</p> 
+    <p></p> 
+    <pre>
+<code>
+ { 
+   &quot;subtitle_use_speaker&quot;: true 
+ } 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Added parameter `subtitle_use_speaker` responsible for embedding the speaker's name at the beginning of the subtitle.</p> 
+    <p></p> 
+    <p>If `"subtitle_use_speaker": true` Then each subtitle starts with the speaker's name if recognized. `Speechmatics` allows us to recognize different speakers. Each speaker is assigned an id - `S1`, `S2`, `S3`, etc.</p> 
+    <p></p> 
+    <p>For each speaker, we try to recognize their name using another API and match it with the id from `Speechmatics`.</p> 
+    <p></p> 
+    <p>- If <strong>speaker</strong> occurs for the first time - its full name is used.</p> 
+    <p>- If <strong>speaker</strong> has already occurred before - its short name is used.</p> 
+    <p>- If <strong>speaker</strong> does not have its full and short name set - its id is used: `S1:`.</p> 
+    <p></p> 
+    <ul> 
+      <li>*Before:**</li> 
+    </ul> 
+    <pre>
+<code>
+ ---------------------------------------- 
+  
+ [15] So I want to start by offering you 
+ [17] a. And all it requires of you 
+  
+ ---------------------------------------- 
+  
+ [15] a. And all it requires of you 
+ [17] is this two minutes. 
+  
+ ---------------------------------------- 
+  
+ [15] is this two minutes. 
+ [17] But before I give it 
+  
+ ---------------------------------------- 
+ </code>
+    </pre> 
+    <p></p> 
+    <ul> 
+      <li>*After**</li> 
+    </ul> 
+    <p>- Speaker: `S1`</p> 
+    <p>- Fullname: `Jean Dupont`</p> 
+    <p>- Shortname: `J. Dupont`</p> 
+    <p></p> 
+    <p>- Speaker: `S2`</p> 
+    <p>- Fullname: `Jean Durand`</p> 
+    <p>- Shortname: `J. Durand`</p> 
+    <p></p> 
+    <pre>
+<code>
+ ---------------------------------------- 
+  
+ [15] Jean Dupont: So I want to start 
+ [17] by offering you a. And 
+  
+ ---------------------------------------- 
+  
+ [15] J. Dupont: by offering you a. And 
+ [17] all it requires of you is this 
+  
+ ---------------------------------------- 
+  
+ [15] J. Dupont: all it requires of you 
+ [17] Jean Durand: is this two minutes. 
+  
+ ---------------------------------------- 
+  
+ [15] J. Durand: is this two minutes. 
+ [17] But before I give it 
+  
+ ---------------------------------------- 
+ </code>
+    </pre> 
+    <p></p> 
+    <p></p> 
+    <h3>#autosub Migrate project to .Net9.0</h3> 
+    <p></p> 
+    <p>Project `AutoSub` was migrated to the latest dotnet framework .net 9.0.</p> 
+    <p></p> 
+    <p>For the service to work, you should update dotnet from the official website.</p> 
+    <p></p> 
+    <ul> 
+      <li>*ASP.NET Core Runtime 9.0.0**</li> 
+    </ul> 
+    <pre>
+<code>
+ https://dotnet.microsoft.com/en-us/download/dotnet/9.0 
+ </code>
+    </pre> 
+    <p></p> 
+    <p></p> 
+    <p></p> 
+    <p></p></main>
+  </body>
+</html>
+

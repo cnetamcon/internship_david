@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>stl version v3.9.2.0</h1> 
+    <p>Date: 2025.01.20</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <p>- #74 #autosub Set speaker name first time only</p> 
+    <p></p> 
+    <h2>Features</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <h3>#autosub Set speaker name first time only</h3> 
+    <p></p> 
+    <p>Added new configuration in the `SpeechmaticsSettings.json` file and `speaker_api` section.</p> 
+    <p></p> 
+    <p>- `speaker_prefix` string</p> 
+    <p>- `speaker_postfix` string</p> 
+    <p>- `show_new_speaker_only` boolean</p> 
+    <p>- `use_speaker_id` boolean</p> 
+    <p></p> 
+    <p>Parameter <strong>speaker_prefix</strong> include value before speaker name</p> 
+    <p></p> 
+    <p>Parameter <strong>speaker_postfix</strong> include value after speaker name</p> 
+    <p></p> 
+    <p>Parameter <strong>use_speaker_id</strong>. If the parameter is <strong>True</strong> and `speaker_api.uri` not specified we display the speaker ID like <strong>S1</strong>, <strong>S2</strong> etc.</p> 
+    <p></p> 
+    <p>Parameter <strong>show_new_speaker_only</strong>. If the parameter is <strong>True</strong>, we display the speaker name only once when the speaker appears or changes.</p> 
+    <p></p> 
+    <p>Use case when `speaker_api.uri` specified and `"speaker_api.show_new_speaker_only": true`:</p> 
+    <p></p> 
+    <pre>
+<code>
+ ---------------------------------------- 
+  
+ [15] - Unrecognized: So I want to start  &lt;-- speaker not recognized 
+ [17] by offering you a. And 
+  
+ ---------------------------------------- 
+  
+ [15] - Jean Dupont: by offering you a.   &lt;-- a new speaker Dupont 
+ [17] And all it requires of you is this 
+  
+ ---------------------------------------- 
+  
+ [15] all it requires of you 
+ [17] - Jean Durand: is this two minutes. &lt;-- a new speaker Durand 
+  
+ ---------------------------------------- 
+  
+ [15] is this two minutes. 
+ [17] But before I give it 
+  
+ ---------------------------------------- 
+ </code>
+    </pre> 
+    <p></p> 
+    <h3>Speaker name building description</h3> 
+    <p></p> 
+    <p>We have the `ApplicationSettings` `subtitle_use_speaker` configuration which determines whether the speaker in the subtitle will be used or not.</p> 
+    <p></p> 
+    <p>Next we have the `SpeechmaticsSettings` `speaker_api` configuration which controls the display of the speaker name.</p> 
+    <p></p> 
+    <p>We can have 3 cases:</p> 
+    <p></p> 
+    <p>1. The remote api address is specified and the api is available</p> 
+    <p>2. The remote api address is specified, but the api is not available</p> 
+    <p>3. The remote api address is not specified</p> 
+    <p></p> 
+    <h2>1. The remote api address is specified and the api is available</h2> 
+    <p></p> 
+    <p>If the address is specified in the settings `speaker_api.uri` and we have not yet received the speaker's name, we send a request to the remote API.</p> 
+    <p></p> 
+    <p>If the remote api returns a speaker with the `confidence` value less then `confidence_threshold` when recognizing a speaker, we set the speaker name from the `unrecognized_speaker` settings.</p> 
+    <p></p> 
+    <p>In the subtitles for the speaker `S1`, the name from `unrecognized_speaker` will be matched, but on the next iteration, an attempt will be made to get the name from the remote api again.</p> 
+    <p></p> 
+    <p>Before each speaker we set the prefix from the `speaker_api.speaker_prefix`.</p> 
+    <p></p> 
+    <p>After each speaker we set the postfix from the `speaker_api.speaker_postfix`.</p> 
+    <p></p> 
+    <p>If the speaker is encountered for the first time, the full name is used. Subsequently, the short name is used. The short name is formed by shortening the name to one character and the `.`</p> 
+    <p></p> 
+    <p>Example:</p> 
+    <p></p> 
+    <p>- Fullname: `Jean Dupont`</p> 
+    <p>- Shortname: `J. Dupont`</p> 
+    <p></p> 
+    <p>The speaker's name ends with a colon as `{speaker_prefix}{speaker_name}{speaker_postfix}: {subtitle_text}`</p> 
+    <p></p> 
+    <h2>2. The remote api address is specified, but the api is not available</h2> 
+    <p></p> 
+    <p>In the subtitles for the speaker `S1`, the name from `unrecognized_speaker` will be matched, but on the next iteration, an attempt will be made to get the name from the remote api again.</p> 
+    <p></p> 
+    <h2>3. The remote api address is not specified</h2> 
+    <p></p> 
+    <p>In this case we don't send the request to external API and don't use the `unrecognized_speaker` or speaker ID but use the `speaker_prefix` value and we don't need use the symbol `speaker_postfix` after speaker name.</p> 
+    <p></p> 
+    <p>Example:</p> 
+    <p></p> 
+    <pre>
+<code>
+ - all it requires of you is this 
+ is this two minutes. 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Or if there are two speakers in subtitle:</p> 
+    <p></p> 
+    <pre>
+<code>
+ - all it requires of you is this 
+ - is this two minutes. 
+ </code>
+    </pre> 
+    <p></p> 
+    <p></p> 
+    <p></p> 
+    <p></p></main>
+  </body>
+</html>
+

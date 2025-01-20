@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>stl version v3.8.5.0</h1> 
+    <p>Date: 2024.09.10</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <p>- #22 Create an architecture diagram of the subtitle building</p> 
+    <p>- #23 Change sequence of convert transcription to subtitle</p> 
+    <p>- #24 Make filter to clear duplicates from transcription</p> 
+    <p>- #25 Move to the next line if added symbol is punctuation</p> 
+    <p>- #26 Change subtitle delivery process. Wait until the subtitle is fully filled</p> 
+    <p></p> 
+    <h2>Features</h2> 
+    <p></p> 
+    <p>---</p> 
+    <p></p> 
+    <h3>Create an architecture diagram of the subtitle building</h3> 
+    <p></p> 
+    <p>The scheme for constructing subtitles has been prepared</p> 
+    <p></p> 
+    <img src='../attachments/Algo-Auto-Sub-modify.svg' alt='' /> 
+    <p></p> 
+    <p></p> 
+    <h3>Change sequence of convert transcription to subtitle</h3> 
+    <p></p> 
+    <ul> 
+      <li>*Subtitle Formation Process Based on Transcriptions:**</li> 
+    </ul> 
+    <p>1. <strong>Receiving the Transcription:</strong>  </p> 
+    <p>   After receiving the transcription from `Speechmatics`, individual words are stored in the `Words buffer`.</p> 
+    <p></p> 
+    <p>2. <strong>Duplicate Filtering:</strong>  </p> 
+    <p>   Before recording in the `Words buffer`, duplicate words from the transcription are removed.</p> 
+    <p></p> 
+    <p>3. <strong>Subtitle Formation:</strong>  </p> 
+    <p>   Words are sequentially extracted from the `Words buffer` and added to the `Subtitles buffer`.</p> 
+    <p></p> 
+    <p>   - <strong>Subtitles buffer</strong> consists of two components:</p> 
+    <p>     - <strong>Current subtitle:</strong> where words from the `Words buffer` are added.</p> 
+    <p>     - <strong>Collection of formed subtitles:</strong> where the <strong>current subtitle</strong> is moved after it is fully formed.</p> 
+    <p></p> 
+    <p>4. <strong>Transfer to the Collection:</strong>  </p> 
+    <p>   Once the <strong>current subtitle</strong> is filled, it is transferred to the <strong>Collection of formed subtitles</strong>.</p> 
+    <p></p> 
+    <p>5. <strong>Subtitle Extraction:</strong>  </p> 
+    <p>   The `Extract` method is called every `subtitles_timeout_ms` milliseconds to extract one subtitle from the <strong>Collection of formed subtitles</strong>.</p> 
+    <p></p> 
+    <p>   - If the <strong>Collection of formed subtitles</strong> is empty, but the <strong>current subtitle</strong> (partially formed) contains words, a waiting process for new words begins.</p> 
+    <p>   - If no new words are received during `subtitle_extract_attempts` calls to the `Extract` method, the <strong>current subtitle</strong> is forcibly moved to the <strong>Collection of formed subtitles</strong>.</p> 
+    <p></p> 
+    <p>6. <strong>Completion of Subtitle Formation:</strong>  </p> 
+    <p>   After the <strong>current subtitle</strong> is fully formed or the attempts to wait for new words have ended, the `Build subtitle` method is called. This method records the <strong>current subtitle</strong> in the <strong>Collection of formed subtitles</strong> and, depending on the `subtitle_gen_line_mode` parameter, either clears the <strong>current subtitle</strong> or shifts its lines up by one position, freeing the last line for new words.</p> 
+    <p></p> 
+    <p>7. <strong>Subtitle Conversion and Saving:</strong>  </p> 
+    <p>   After the subtitle is extracted by the `Extract` method, depending on the `subtitle_write_mode` setting, the subtitle can:</p> 
+    <p>   - Be converted to Newfor format and sent via TCP/UDP.</p> 
+    <p>   - Be converted to SRT format and saved to a file.</p> 
+    <p>   - Be saved to a file, overwriting the previous subtitle.</p> 
+    <p></p> 
+    <p>`ApplicationSettings.json` settings:</p> 
+    <p></p> 
+    <pre>
+<code>
+ { 
+   &quot;grpc_service_ip&quot;: &quot;127.0.0.1&quot;, 
+   &quot;grpc_service_port&quot;: 9740, 
+   &quot;subtitles_timeout_ms&quot;: 2000, 
+   &quot;subtitle_lines&quot;: &quot;8,14&quot;, 
+   &quot;subtitle_start_mode&quot;: 1, 
+   &quot;subtitle_write_mode&quot;: [0], 
+   &quot;subtitle_srt_path&quot;: &quot;./tmp/subtitle.srt&quot;, 
+   &quot;subtitle_latest_path&quot;: &quot;./tmp/latest.sub&quot;, 
+   &quot;subtitle_gen_line_mode&quot;: 0, 
+   &quot;subtitle_extract_attempts&quot;: 0 
+ } 
+ </code>
+    </pre> 
+    <p></p> 
+    <ul> 
+      <li>*subtitle_start_mode** - defines the application operating mode.</li> 
+    </ul> 
+    <p>1 - Transcription starts automatically after the service starts. In this case, the transcription language is taken from a file `SpeechmaticsSettings.json` `speechmatics.language`</p> 
+    <p></p> 
+    <ul> 
+      <li>*subtitle_write_mode** - Choose what to do with the received transcriptions. It should be sequence of numbers separated by commas.</li> 
+    </ul> 
+    <p>1: Write to file as SRT</p> 
+    <p>2: Write to file as plain text the latest subtitle</p> 
+    <p></p> 
+    <ul> 
+      <li>*subtitle_srt_path** - if subtitle_write_mode is 1, this is the path to the SRT file</li> 
+    </ul> 
+    <ul> 
+      <li>*subtitle_gen_line_mode** - When all lines for subtitle is full - for the next subtitle</li> 
+    </ul> 
+    <p>1 - Remove all lines. We wait until all the lines are filled in</p> 
+    <p></p> 
+    <ul> 
+      <li>*subtitle_extract_attempts** - specifies the number of iterations that will wait for the Transcription</li> 
+    </ul> 
+    <p></p> 
+    <p></p> 
+    <h3>Make filter to clear duplicates from transcription</h3> 
+    <p></p> 
+    <p>To enhance the readability of the transcription, we remove repeated words or short phrases that people often repeat during conversations.</p> 
+    <p></p> 
+    <p>Before storing words in the `Words buffer`, duplicates from the transcription are filtered out.</p> 
+    <p></p> 
+    <ul> 
+      <li>*For example:**</li> 
+    </ul> 
+    <p>Original line:</p> 
+    <p></p> 
+    <pre>
+<code>
+ Aujourd&#39;hui, il est, il est surtout 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Will be replaced with:</p> 
+    <p></p> 
+    <pre>
+<code>
+ Aujourd&#39;hui, il est surtout 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Original line:</p> 
+    <p></p> 
+    <pre>
+<code>
+ Aujourd&#39;hui, il il est surtout 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Will be replaced with:</p> 
+    <p></p> 
+    <pre>
+<code>
+ Aujourd&#39;hui, il est surtout 
+ </code>
+    </pre> 
+    <p></p> 
+    <p></p> 
+    <h3>Move to the next line if added symbol is punctuation</h3> 
+    <p></p> 
+    <p>During the process of filling subtitle lines, when adding a new word to the `Subtitle Buffer`.`Current subtitle`, we check whether the word ends with a punctuation mark such as `. ? ! ;`. If it does, we complete the current line and move to the next one. During this process, we also check the following conditions:</p> 
+    <p></p> 
+    <p>- If the word is at the beginning of the current line and there is space in the previous line, we add the word to the end of the previous line.</p> 
+    <p>- If the word is at the beginning of the current line and there is no space in the previous line, we move the last word from the previous line to the current line. This prevents the line from starting with a punctuation mark, thereby improving readability.</p> 
+    <p></p> 
+    <p>The same rule applies to the characters `, ( ) [ ]`, except that after adding such a word, there is no transition to the next line.</p> 
+    <p></p> 
+    <p></p> 
+    <h3>Change subtitle delivery process. Wait until the subtitle is fully filled</h3> 
+    <p></p> 
+    <p>The `Extract` method, which extracts subtitles from the `Subtitle Buffer` and sends them to the designated destination, is called every `subtitles_timeout_ms` milliseconds.</p> 
+    <p></p> 
+    <p>However, since a subtitle is formed from received words, we need to account for potential delays in filling the `Subtitle Buffer`.`Current subtitle`. To handle this while ensuring the last subtitle isn't lost, the `subtitle_extract_attempts` parameter has been added. This parameter defines the number of attempts to extract a subtitle when the `Subtitle Buffer`.`Collection of formed subtitles` is empty, but there are still words in the <strong>current subtitle</strong>.</p> 
+    <p></p> 
+    <p>If no new words are received during the specified `subtitle_extract_attempts` calls to the `Extract` method, the <strong>current subtitle</strong> is forcibly moved to the <strong>Collection of formed subtitles</strong>.</p> 
+    <p></p> 
+    <p></p> 
+    <p></p> 
+    <p></p></main>
+  </body>
+</html>
+

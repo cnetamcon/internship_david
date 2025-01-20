@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    main {
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #cccccc88;
+    }
+  </style>
+  <body>
+    <main>
+    <h1>stl version v3.8.0.0</h1> 
+    <p>Date: 2024.07.24</p> 
+    <p></p> 
+    <h2>Issues in Milestone</h2> 
+    <p>---</p> 
+    <p>- [12] #autosub Make a settings to choose between send to TCP/UDP and write into file</p> 
+    <p></p> 
+    <h2>Features</h2> 
+    <p>---</p> 
+    <h3>#autosub Make a settings to choose between send to TCP/UDP and write into file</h3> 
+    <p></p> 
+    <p>Changed ApplicationSettings.json file. Added settings `subtitle_write_mode` and `subtitle_srt_path`:</p> 
+    <p></p> 
+    <pre>
+<code>
+ subtitle_write_mode - Choose what to do with the received transcriptions 
+     0: Send via TCP or UDP as Newfor 
+     1: Write to file as SRT 
+  
+ subtitle_srt_path - if subtitle_write_mode is 1, this is the path to the SRT file 
+ </code>
+    </pre> 
+    <p></p> 
+    <p>Если `subtitle_write_mode = 1` мы записываем полученные transcriptions в файл указанный в `subtitle_srt_path`.</p> 
+    <p></p> 
+    <p>In this case, to determine the subtitle time, we use the following scheme:</p> 
+    <p>When we receive the first subtitle, we do not write it to a file, but wait for the next one.</p> 
+    <p>When we get the next subtitle, we subtract the creation time of both subtitles and get the duration of the previous subtitle.</p> 
+    <p>This way we can fill the time value in SRT.</p> 
+    <p>But with this approach, we may not record the last transcription received.</p> 
+    <p></p> 
+    <img src='../attachments/Screenshot_4938.png' alt='' /></main>
+  </body>
+</html>
+
