@@ -20,6 +20,7 @@ x64/
 [Bb]uild[Ll]og.*
 
 .vs
+.tmp/
 
 *_i.c
 *_p.c
