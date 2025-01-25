@@ -17,7 +17,7 @@ $DIR_BUILD = Join-Path $DIR_TEMP $project
 $DIR_SCRIPTS = Join-Path $REPOSITORY_ROOT ".scripts"
 $PATH_HTML_MAIN = Join-Path (Join-Path $DIR_TEMP $project)"readme.html" 
 $SCRIPT_CREATE_TMP = Join-Path $DIR_SCRIPTS "create_tmp.ps1"
-$SCRIPT_HTML_MAIN_CREATE = Join-Path $DIR_SCRIPTS "./create_html_main.ps1"
+$SCRIPT_CREATE_HTML_MAIN = Join-Path $DIR_SCRIPTS "./create_html_main.ps1"
 $SCRIPT_BUILD = Join-Path $DIR_SCRIPTS "build.ps1"
 $SCRIPT_TESTS = Join-Path $DIR_SCRIPTS "tests.ps1"
 $SCRIPT_CREATE_VERSION = Join-Path $DIR_SCRIPTS "create_version.ps1"
@@ -55,7 +55,7 @@ copy -R "$DIR_VERSIONS_ATTACHMENT" $DIR_VERSIONS_NEW
 
 # Generate index html 
 
-& $SCRIPT_HTML_MAIN_CREATE -root $REPOSITORY_ROOT -version $version -output $PATH_HTML_MAIN
+& $SCRIPT_CREATE_HTML_MAIN -root $REPOSITORY_ROOT -version $version -output $PATH_HTML_MAIN
 
 # Copy update info
 #copy "$(Join-Path $DIR_DOCS readme_update.md)" "$(Join-Path $DIR_BUILD readme_update.md)"
