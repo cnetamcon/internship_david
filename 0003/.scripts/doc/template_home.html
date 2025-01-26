@@ -16,7 +16,7 @@
   main {
     display: grid;
     grid-template-areas: "left-menu content";
-    grid-template-columns: 180px 1fr;
+    grid-template-columns: 240px 1fr;
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
@@ -27,31 +27,52 @@
     grid-area: left-menu;
     height: 100%;
     overflow-y: scroll;
+    padding: 0px 20px;
+    background-color: rgb(206, 50, 50);
   }
 
   .grid-content {
     grid-area: content;
     position: relative;
     overflow: auto;
+    padding: 0px 40px;
   }
 
-  .left-menu {
-    margin: 0;
+  .grid-left-menu h1 {
+    color: #ffffff;
+    margin-left: 10px;
+  }
+
+  .grid-content h4 {
+    color: #000000;
+    text-align: right;
+    margin-right: 10px;
   }
 
   .left-menu-item {
-    background-color: #00000066;
-    padding: 4px;
-    margin: 2px;
+    background-color: #ffffffcc;
+    padding: 5px;
+    margin-bottom: 5px;
     cursor: pointer;
+    border-radius: 2px;
+    box-shadow: #00000066 0px 3px 3px;
   }
 
   .left-menu-item:hover {
-    background-color: #00000033;
+    background-color: #c9c9c9cc;
   }
 
   .left-menu-item-selected {
     background-color: bisque;
+  }
+
+  .left-menu-item.current::after {
+    content: "current";
+    color: #ffffff;
+    background-color: #007000;
+    float: right;
+    padding: 0px 5px;
+    border-radius: 100vh;
   }
 
   .main-content {
@@ -87,8 +108,9 @@
 <body>
   <main>
     <div class="grid-left-menu">
+      <h1>STL</h1>
       <div class="left-menu">
-        <div class="left-menu-item button" data-page="home.html">Home</div>
+        <div class="left-menu-item button" data-page="home">Home</div>
         <div class="left-menu-item toggle">Versions</div>
         <div id="versionscontainer"></div>
         <div class="left-menu-item toggle">Wiki</div>
@@ -96,6 +118,7 @@
       </div>
     </div>
     <div class="grid-content">
+      <h4>Broad Team</h4>
       <div id="maincontent" class="main-content"></div>
     </div>
   </main>
@@ -118,7 +141,7 @@
       element.dataset.page = page;
 
       if (versions[i] === current_version) {
-        element.innerHTML += " (current)";
+        element.classList.add("current");
       }
 
       versions_container.appendChild(element);
@@ -162,7 +185,7 @@
     if (current_version) {
       console.log("CURENT VERSION: " + current_version);
       // selectPage("versions/" + current_version);
-      selectPage("home.html");
+      selectPage("home");
     }
   </script>
 </body>
