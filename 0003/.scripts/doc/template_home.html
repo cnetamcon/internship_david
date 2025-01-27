@@ -11,6 +11,11 @@
     margin: 0;
     padding: 0;
     height: 100%;
+    font-family: sans-serif;
+  }
+
+  * {
+    font-family: inherit;
   }
 
   main {
@@ -28,7 +33,7 @@
     height: 100%;
     overflow-y: scroll;
     padding: 0px 20px;
-    background-color: rgb(206, 50, 50);
+    background-color: #ce3232;
   }
 
   .grid-content {
@@ -50,28 +55,31 @@
   }
 
   .left-menu-item {
-    background-color: #ffffffcc;
-    padding: 5px;
-    margin-bottom: 5px;
     cursor: pointer;
+    font-weight: 600;
+    background-color: #ffffffcc;
+    padding: 10px;
+    margin-bottom: 5px;
     border-radius: 2px;
     box-shadow: #00000066 0px 3px 3px;
   }
 
   .left-menu-item:hover {
-    background-color: #c9c9c9cc;
+    background-color: #ffffff;
   }
 
   .left-menu-item-selected {
-    background-color: bisque;
+    background-color: #ffe4c4;
   }
 
   .left-menu-item.current::after {
-    content: "current";
-    color: #ffffff;
-    background-color: #007000;
     float: right;
-    padding: 0px 5px;
+    content: "latest";
+    color: #ffffff;
+    font-size: 0.84em;
+    font-weight: normal;
+    background-color: #007000;
+    padding: 0.08em 8px;
     border-radius: 100vh;
   }
 
@@ -89,11 +97,16 @@
   }
 
   .toggle::before {
-    content: ">"
+    display: inline-block;
+    content: ">";
+    color: #303030;
+    text-align: center;
+    width: 20px;
+    margin-right: 5px;
   }
 
   .toggle.active::before {
-    content: "v"
+    content: "v";
   }
 
   .toggle + div {
@@ -179,14 +192,14 @@
 
       let container = document.getElementById('maincontent');
       let path = './.docs/' + page + '.html';
-      container.innerHTML = '<iframe src="' + path + '"></iframe>';;
+      container.innerHTML = '<iframe src="' + path + '"></iframe>';
     }
 
     if (current_version) {
       console.log("CURENT VERSION: " + current_version);
-      // selectPage("versions/" + current_version);
-      selectPage("home");
+      selectPage("versions/" + current_version);
     }
+    else selectPage("home");
   </script>
 </body>
 
