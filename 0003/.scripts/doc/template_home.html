@@ -37,10 +37,13 @@
   }
 
   .grid-content {
+    display: flex;
+    flex-direction: column;
     grid-area: content;
     position: relative;
-    overflow: auto;
+    overflow: hidden;
     padding: 0px 40px;
+    height: 100%;
   }
 
   .grid-left-menu h1 {
@@ -86,7 +89,7 @@
   .main-content {
     margin: 0;
     padding: 0;
-    height: 98%;
+    flex: 1;
   }
 
   iframe {
