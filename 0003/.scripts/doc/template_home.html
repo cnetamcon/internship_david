@@ -101,15 +101,18 @@
 
   .toggle::before {
     display: inline-block;
-    content: ">";
+    content: "‎";
+    background-image: url(".docs/src/arrow_right.svg");
+    background-position: center;
+    background-size: 2em;
     color: #303030;
-    text-align: center;
-    width: 20px;
+    width: 18.18px;
+    height: 18.18px;
     margin-right: 5px;
   }
 
   .toggle.active::before {
-    content: "v";
+    background-image: url(".docs/src/arrow_down.svg");
   }
 
   .toggle + div {
@@ -198,11 +201,12 @@
       container.innerHTML = '<iframe src="' + path + '"></iframe>';
     }
 
-    if (current_version) {
-      console.log("CURENT VERSION: " + current_version);
-      selectPage("versions/" + current_version);
-    }
-    else selectPage("home");
+    // if (current_version) {
+    //  console.log("CURENT VERSION: " + current_version);
+    //  selectPage("versions/" + current_version);
+    //} else
+
+    selectPage("home");
   </script>
 </body>
 
