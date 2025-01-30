@@ -46,12 +46,12 @@
     height: 100%;
   }
 
-  .grid-left-menu h1 {
+  #heading-left {
     color: #ffffff;
     margin-left: 10px;
   }
 
-  .grid-content h4 {
+  #heading-right {
     color: #000000;
     text-align: right;
     margin-right: 10px;
@@ -86,19 +86,6 @@
     border-radius: 100vh;
   }
 
-  .main-content {
-    margin: 0;
-    padding: 0;
-    flex: 1;
-  }
-
-  iframe {
-    min-height: 100%;
-    min-width: 100%;
-    border: 0;
-    margin: 0;
-  }
-
   .toggle::before {
     display: inline-block;
     content: "‎";
@@ -122,12 +109,25 @@
   .toggle:not(.active) + div {
     display: none;
   }
+
+  .main-content {
+    margin: 0;
+    padding: 0;
+    flex: 1;
+  }
+
+  iframe {
+    min-height: 100%;
+    min-width: 100%;
+    border: 0;
+    margin: 0;
+  }
 </style>
 
 <body>
   <main>
     <div class="grid-left-menu">
-      <h1>STL</h1>
+      <h1 id="heading-left">STL</h1>
       <div class="left-menu">
         <div class="left-menu-item button" data-page="home">Home</div>
         <div class="left-menu-item toggle">Versions</div>
@@ -137,7 +137,7 @@
       </div>
     </div>
     <div class="grid-content">
-      <h4>Broad Team</h4>
+      <h4 id="heading-right">Broad Team</h4>
       <div id="maincontent" class="main-content"></div>
     </div>
   </main>
