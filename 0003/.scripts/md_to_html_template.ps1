@@ -34,7 +34,7 @@ $markdownContent -split "`n" | ForEach-Object {
     # Обработка начала и конца блока кода
     if ($line -match '^```') {
         if (-not $inCodeBlock) {
-            $htmlContent += "`r`n    <pre>`r`n<code>`r`n"
+            $htmlContent += "`r`n    <pre>`r`n<code class='content-code'>`r`n"
             $inCodeBlock = $true
         } else {
             $htmlContent += "</code>`r`n    </pre>"
@@ -50,16 +50,16 @@ $markdownContent -split "`n" | ForEach-Object {
     elseif ($line -match '^(#+)\s*(.+)') {
         $level = $matches[1].Length
         $text = $matches[2]
-        $htmlContent += "`r`n    <h$level>$text</h$level>"
+        $htmlContent += "`r`n    <h$level class='content-h'>$text</h$level>"
     }
     # Ненумерованные списки
     elseif ($line -match '^\*\s*(.+)') {
         $text = $matches[1]
         if (-not $inList) {
-            $htmlContent += "`r`n    <ul>"
+            $htmlContent += "`r`n    <ul class='content-ul'>"
             $inList = $true
         }
-        $htmlContent += "`r`n      <li>$text</li>"
+        $htmlContent += "`r`n      <li class='content-li'>$text</li>"
     }
     # Закрытие ненумерованного списка
     elseif ($inList -and $line -notmatch '^\*\s*(.+)') {
@@ -69,17 +69,17 @@ $markdownContent -split "`n" | ForEach-Object {
     # Жирный текст
     elseif ($line -match '\*\*(.+)\*\*') {
         $text = $line -replace '\*\*(.+?)\*\*', '<strong>$1</strong>'
-        $htmlContent += "`r`n    <p>$text</p>"
+        $htmlContent += "`r`n    <p class='content-strong'>$text</p>"
     }
     # Изображения
     elseif ($line -match '!\[(.*?)\]\((.*?)\)') {
         $altText = $matches[1]
         $imgUrl = $matches[2]
-        $htmlContent += "`r`n    <img src='$imgUrl' alt='$altText' />"
+        $htmlContent += "`r`n    <img src='$imgUrl' alt='$altText' class='content-img' />"
     }
     # Обычные абзацы
     else {
-        $htmlContent += "`r`n    <p>$line</p>"
+        $htmlContent += "`r`n    <p class='content-p'>$line</p>"
     }
 }
 
