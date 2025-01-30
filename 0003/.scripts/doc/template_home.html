@@ -186,6 +186,7 @@
     }
 
     function selectPage(page) {
+      if (page === selected_page) return;
       selected_page = page;
       for (const button of document.getElementsByClassName('button')) {
         if (button.dataset.page === selected_page
@@ -201,12 +202,11 @@
       container.innerHTML = '<iframe src="' + path + '"></iframe>';
     }
 
-    // if (current_version) {
-    //  console.log("CURENT VERSION: " + current_version);
-    //  selectPage("versions/" + current_version);
-    //} else
-
-    selectPage("home");
+    if (current_version) {
+      console.log("CURENT VERSION: " + current_version);
+      selectPage("versions/" + current_version); 
+    } 
+    else selectPage("home");
   </script>
 </body>
 
