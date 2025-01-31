@@ -23,6 +23,7 @@ $markdownContent = $markdownContent -replace "`r`n", "`n"
 # Инициализация переменной для HTML содержимого
 $htmlContent = @()
 $inCodeBlock = $false
+$firstInCodeBlock = $false
 
 # Переменная для отслеживания списков
 $inList = $false
@@ -36,6 +37,7 @@ $markdownContent -split "`n" | ForEach-Object {
         if (-not $inCodeBlock) {
             $htmlContent += "`r`n    <pre class='content-code'><code>"
             $inCodeBlock = $true
+            $firstInCodeBlock = $true
         } else {
             $htmlContent += "</code></pre>"
             $inCodeBlock = $false
@@ -43,8 +45,12 @@ $markdownContent -split "`n" | ForEach-Object {
     }
     # Если в блоке кода, просто добавляем строки как есть
     elseif ($inCodeBlock) {
+        if ($firstInCodeBlock) { 
+            $firstInCodeBlock = $false 
+        } else { 
+            $htmlContent += "`r`n" 
+        }
         $htmlContent += [System.Web.HttpUtility]::HtmlEncode($line)
-        $htmlContent += "`r`n"
     }
     # Заголовки
     elseif ($line -match '^(#+)\s*(.+)') {
@@ -85,7 +91,7 @@ $markdownContent -split "`n" | ForEach-Object {
 
 # Закрытие открытого блока кода, если не закрыто
 if ($inCodeBlock) {
-    $htmlContent += "</code>`r`n    </pre>"
+    $htmlContent += "</code></pre>"
 }
 
 # Закрытие списка в конце файла, если не закрыто
