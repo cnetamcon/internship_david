@@ -34,10 +34,10 @@ $markdownContent -split "`n" | ForEach-Object {
     # Обработка начала и конца блока кода
     if ($line -match '^```') {
         if (-not $inCodeBlock) {
-            $htmlContent += "`r`n    <pre>`r`n<code class='content-code'>`r`n"
+            $htmlContent += "`r`n    <pre class='content-code'><code>"
             $inCodeBlock = $true
         } else {
-            $htmlContent += "</code>`r`n    </pre>"
+            $htmlContent += "</code></pre>"
             $inCodeBlock = $false
         }
     }
