@@ -72,19 +72,20 @@ $markdownContent -split "`n" | ForEach-Object {
         $htmlContent += "`r`n    </ul>"
         $inList = $false
     }
-    # Жирный текст
-    elseif ($line -match '\*\*(.+)\*\*') {
-        $text = $line -replace '\*\*(.+?)\*\*', '<strong>$1</strong>'
-        $htmlContent += "`r`n    <p class='content-strong'>$text</p>"
-    }
     # Изображения
     elseif ($line -match '!\[(.*?)\]\((.*?)\)') {
         $altText = $matches[1]
         $imgUrl = $matches[2]
         $htmlContent += "`r`n    <img src='$imgUrl' alt='$altText' class='content-img' />"
     }
+    # Горизонтальные разделители
+    elseif ($line -match '^\s*-+\s*$') {
+        $htmlContent += "`r`n    <hr class='content-hr'>"
+    }
     # Обычные абзацы
     else {
+        $line = $line -replace '\*\*(.+?)\*\*', '<strong class="content-inline-strong">$1</strong>'
+        $line = $line -replace '`(.+?)`', '<code class="content-inline-code">$1</code>'
         $htmlContent += "`r`n    <p class='content-p'>$line</p>"
     }
 }
