@@ -1,21 +1,47 @@
 <!doctype html>
 <html>
   <style>
+    * {
+      font-family: inherit;
+    }
+
     body {
       margin: 0;
       padding: 0;
       min-height: 100%;
-    }
-    img {
-      max-width: 100%;
+      font-family: sans-serif;
     }
     main {
       padding: 40px;
       max-width: 800px;
       border: 1px solid #cccccc88;
     }
+
+    .content-img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .content-code {
+      background-color: #f4f4f4;
+      border-radius: 5px;
+      padding: 20px;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+    .content-hr {
+      border: 1px solid #e4e4e4;
+    }
+    .content-inline-code {
+      display: inline-block;
+      background-color: #f0dbdb;
+      color: #ce3232;
+      border-radius: 3px;
+      padding: 1px 4px;
+      margin: 0px 0.33px;
+      font-family: monospace, Consolas, 'Lucida Console', Courier, 'Courier New';
+    }
   </style>
-  <body>
-    <main>html-content</main>
+  <body class="content-body">
+    <main class="content-main">html-content</main>
   </body>
 </html>

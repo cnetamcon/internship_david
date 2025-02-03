@@ -23,6 +23,7 @@ $markdownContent = $markdownContent -replace "`r`n", "`n"
 # Инициализация переменной для HTML содержимого
 $htmlContent = @()
 $inCodeBlock = $false
+$firstInCodeBlock = $false
 
 # Переменная для отслеживания списков
 $inList = $false
@@ -34,58 +35,64 @@ $markdownContent -split "`n" | ForEach-Object {
     # Обработка начала и конца блока кода
     if ($line -match '^```') {
         if (-not $inCodeBlock) {
-            $htmlContent += "`r`n    <pre>`r`n<code>`r`n"
+            $htmlContent += "`r`n    <pre class='content-code'><code>"
             $inCodeBlock = $true
+            $firstInCodeBlock = $true
         } else {
-            $htmlContent += "</code>`r`n    </pre>"
+            $htmlContent += "</code></pre>"
             $inCodeBlock = $false
         }
     }
     # Если в блоке кода, просто добавляем строки как есть
     elseif ($inCodeBlock) {
+        if ($firstInCodeBlock) { 
+            $firstInCodeBlock = $false 
+        } else { 
+            $htmlContent += "`r`n" 
+        }
         $htmlContent += [System.Web.HttpUtility]::HtmlEncode($line)
-        $htmlContent += "`r`n"
     }
     # Заголовки
     elseif ($line -match '^(#+)\s*(.+)') {
         $level = $matches[1].Length
         $text = $matches[2]
-        $htmlContent += "`r`n    <h$level>$text</h$level>"
+        $htmlContent += "`r`n    <h$level class='content-h'>$text</h$level>"
     }
     # Ненумерованные списки
     elseif ($line -match '^\*\s*(.+)') {
         $text = $matches[1]
         if (-not $inList) {
-            $htmlContent += "`r`n    <ul>"
+            $htmlContent += "`r`n    <ul class='content-ul'>"
             $inList = $true
         }
-        $htmlContent += "`r`n      <li>$text</li>"
+        $htmlContent += "`r`n      <li class='content-li'>$text</li>"
     }
     # Закрытие ненумерованного списка
     elseif ($inList -and $line -notmatch '^\*\s*(.+)') {
         $htmlContent += "`r`n    </ul>"
         $inList = $false
     }
-    # Жирный текст
-    elseif ($line -match '\*\*(.+)\*\*') {
-        $text = $line -replace '\*\*(.+?)\*\*', '<strong>$1</strong>'
-        $htmlContent += "`r`n    <p>$text</p>"
-    }
     # Изображения
     elseif ($line -match '!\[(.*?)\]\((.*?)\)') {
         $altText = $matches[1]
         $imgUrl = $matches[2]
-        $htmlContent += "`r`n    <img src='$imgUrl' alt='$altText' />"
+        $htmlContent += "`r`n    <img src='$imgUrl' alt='$altText' class='content-img' />"
+    }
+    # Горизонтальные разделители
+    elseif ($line -match '^\s*-+\s*$') {
+        $htmlContent += "`r`n    <hr class='content-hr'>"
     }
     # Обычные абзацы
     else {
-        $htmlContent += "`r`n    <p>$line</p>"
+        $line = $line -replace '\*\*(.+?)\*\*', '<strong class="content-inline-strong">$1</strong>'
+        $line = $line -replace '`(.+?)`', '<code class="content-inline-code">$1</code>'
+        $htmlContent += "`r`n    <p class='content-p'>$line</p>"
     }
 }
 
 # Закрытие открытого блока кода, если не закрыто
 if ($inCodeBlock) {
-    $htmlContent += "</code>`r`n    </pre>"
+    $htmlContent += "</code></pre>"
 }
 
 # Закрытие списка в конце файла, если не закрыто
